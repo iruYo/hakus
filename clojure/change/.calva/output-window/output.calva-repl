@@ -18,20 +18,458 @@
 clj꞉change.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉change.core꞉> 
-(sort #{1 15 30 100})
-(1 15 30 100)
+; Evaluating file: core_test.clj
+#'change.core-test/error-testing-for-no-valid-change
 clj꞉change.core-test꞉> 
-(sort #{15 100 1 50})
-(1 15 50 100)
+; Running all project tests…
+; ERROR in change.core-test/cannot-find-negative-change-values (Numbers.java:34):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:34)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue -5 #{1 2 5}))
+; ERROR in change.core-test/change-with-elbonia-coins (Numbers.java:18):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:18)
+; expected:
+(= (issue 63 #{1 21 25 5 10}) '(21 21 21))
+; ERROR in change.core-test/change-with-lilliputian-coins (Numbers.java:14):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:14)
+; expected:
+(= (issue 23 #{20 1 4 15 50}) '(4 4 15))
+; ERROR in change.core-test/error-testing-for-change-smallet-than-the-smallest-coin (Numbers.java:30):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:30)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 3 #{5 10}))
+; ERROR in change.core-test/error-testing-for-no-valid-change (Numbers.java:38):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:38)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 10 #{20 3 8}))
+; ERROR in change.core-test/no-coins-make-zero-change (Numbers.java:26):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:26)
+; expected:
+(empty? (issue 0 #{1 21 25 5 10}))
+; 9 tests finished, problems found. 😭 errors: 6, failures: 0, ns: 1, vars: 9
 clj꞉change.core-test꞉> 
-(sort > #{15 100 1 50})
-(100 50 15 1)
-clj꞉change.core-test꞉> (rem 50 50)
+; Running all project tests…
+; ERROR in change.core-test/cannot-find-negative-change-values (Numbers.java:34):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:34)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue -5 #{1 2 5}))
+; ERROR in change.core-test/change-with-elbonia-coins (Numbers.java:18):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:18)
+; expected:
+(= (issue 63 #{1 21 25 5 10}) '(21 21 21))
+; ERROR in change.core-test/change-with-lilliputian-coins (Numbers.java:14):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:14)
+; expected:
+(= (issue 23 #{20 1 4 15 50}) '(4 4 15))
+; ERROR in change.core-test/error-testing-for-change-smallet-than-the-smallest-coin (Numbers.java:30):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:30)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 3 #{5 10}))
+; ERROR in change.core-test/error-testing-for-no-valid-change (Numbers.java:38):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:38)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 10 #{20 3 8}))
+; ERROR in change.core-test/no-coins-make-zero-change (Numbers.java:26):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:26)
+; expected:
+(empty? (issue 0 #{1 21 25 5 10}))
+; 9 tests finished, problems found. 😭 errors: 6, failures: 0, ns: 1, vars: 9
+clj꞉change.core-test꞉> 
+; Evaluating file: core.clj
+; Syntax error compiling at (src/change/core.clj:6:1).
+; Can't take value of a macro: #'clojure.core/and
+; Evaluation of file core.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉change.core꞉> 
+; Running all project tests…
+; ERROR in change.core-test/cannot-find-negative-change-values (Numbers.java:34):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:34)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue -5 #{1 2 5}))
+; ERROR in change.core-test/change-with-elbonia-coins (Numbers.java:18):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:18)
+; expected:
+(= (issue 63 #{1 21 25 5 10}) '(21 21 21))
+; ERROR in change.core-test/change-with-lilliputian-coins (Numbers.java:14):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:14)
+; expected:
+(= (issue 23 #{20 1 4 15 50}) '(4 4 15))
+; ERROR in change.core-test/error-testing-for-change-smallet-than-the-smallest-coin (Numbers.java:30):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:30)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 3 #{5 10}))
+; ERROR in change.core-test/error-testing-for-no-valid-change (Numbers.java:38):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:38)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 10 #{20 3 8}))
+; ERROR in change.core-test/no-coins-make-zero-change (Numbers.java:26):
+; error: java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "x" is null (Numbers.java:26)
+; expected:
+(empty? (issue 0 #{1 21 25 5 10}))
+; 9 tests finished, problems found. 😭 errors: 6, failures: 0, ns: 1, vars: 9
+clj꞉change.core꞉> 
+; Syntax error compiling at (src/change/core.clj:7:1).
+; Can't take value of a macro: #'clojure.core/and
+clj꞉change.core꞉> (issue 0 #{1 21 25 5 10})
+; Execution error (NullPointerException) at change.core/div-with-remainder (core.clj:4).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉change.core꞉> 
+#'change.core/div-with-remainder
+clj꞉change.core꞉> 
+(issue 0 #{1 21 25 5 10})
+; Execution error (NullPointerException) at change.core/div-with-remainder (form-init11914205965857133159.clj:4).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉change.core꞉> 
+; Evaluating file: core.clj
+; Syntax error compiling at (src/change/core.clj:6:1).
+; Can't take value of a macro: #'clojure.core/and
+; Evaluation of file core.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉change.core꞉> 
+; Evaluating file: core.clj
+#'change.core/issue
+clj꞉change.core꞉> 
+#'change.core/issue
+clj꞉change.core꞉> 
+(issue 0 #{1 21 25 5 10})
+; Execution error (AssertionError) at change.core/eval8215$issue (form-init11914205965857133159.clj:7).
+; Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__))
+clj꞉change.core꞉> 
+; Running all project tests…
+; ERROR in change.core-test/cannot-find-negative-change-values (form-init11914205965857133159.clj:34):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:34)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue -5 #{1 2 5}))
+; ERROR in change.core-test/change-with-elbonia-coins (form-init11914205965857133159.clj:18):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:18)
+; expected:
+(= (issue 63 #{1 21 25 5 10}) '(21 21 21))
+; ERROR in change.core-test/change-with-lilliputian-coins (form-init11914205965857133159.clj:14):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:14)
+; expected:
+(= (issue 23 #{20 1 4 15 50}) '(4 4 15))
+; ERROR in change.core-test/error-testing-for-change-smallet-than-the-smallest-coin (form-init11914205965857133159.clj:30):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:30)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 3 #{5 10}))
+; ERROR in change.core-test/error-testing-for-no-valid-change (form-init11914205965857133159.clj:38):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:38)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 10 #{20 3 8}))
+; ERROR in change.core-test/large-target-values (form-init11914205965857133159.clj:22):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:22)
+; expected:
+(=
+ (issue 999 #{20 1 50 100 2 5 10})
+ '(2 2 5 20 20 50 100 100 100 100 100 100 100 100 100))
+; ERROR in change.core-test/multiple-coin-change (form-init11914205965857133159.clj:10):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:10)
+; expected:
+(= (issue 15 #{1 100 25 5 10}) '(5 10))
+; ERROR in change.core-test/no-coins-make-zero-change (form-init11914205965857133159.clj:26):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:26)
+; expected:
+(empty? (issue 0 #{1 21 25 5 10}))
+; ERROR in change.core-test/single-coin-change (form-init11914205965857133159.clj:6):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:6)
+; expected:
+(= (issue 25 #{1 100 25 5 10}) '(25))
+; 9 tests finished, problems found. 😭 errors: 9, failures: 0, ns: 1, vars: 9
+clj꞉change.core꞉> (+ 10 10
+                     
+                     )
+
+                     
+20
+clj꞉change.core꞉> 
+(nil? '())
+false
+clj꞉change.core꞉> 
+(empty? '())
+true
+clj꞉change.core꞉> 
+(empty? #{})
+true
+clj꞉change.core꞉> 
+; Running all project tests…
+; ERROR in change.core-test/cannot-find-negative-change-values (form-init11914205965857133159.clj:34):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:34)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue -5 #{1 2 5}))
+; ERROR in change.core-test/change-with-elbonia-coins (form-init11914205965857133159.clj:18):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:18)
+; expected:
+(= (issue 63 #{1 21 25 5 10}) '(21 21 21))
+; ERROR in change.core-test/change-with-lilliputian-coins (form-init11914205965857133159.clj:14):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:14)
+; expected:
+(= (issue 23 #{20 1 4 15 50}) '(4 4 15))
+; ERROR in change.core-test/error-testing-for-change-smallet-than-the-smallest-coin (form-init11914205965857133159.clj:30):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:30)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 3 #{5 10}))
+; ERROR in change.core-test/error-testing-for-no-valid-change (form-init11914205965857133159.clj:38):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:38)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 10 #{20 3 8}))
+; ERROR in change.core-test/large-target-values (form-init11914205965857133159.clj:22):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:22)
+; expected:
+(=
+ (issue 999 #{20 1 50 100 2 5 10})
+ '(2 2 5 20 20 50 100 100 100 100 100 100 100 100 100))
+; ERROR in change.core-test/multiple-coin-change (form-init11914205965857133159.clj:10):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:10)
+; expected:
+(= (issue 15 #{1 100 25 5 10}) '(5 10))
+; ERROR in change.core-test/no-coins-make-zero-change (form-init11914205965857133159.clj:26):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:26)
+; expected:
+(empty? (issue 0 #{1 21 25 5 10}))
+; ERROR in change.core-test/single-coin-change (form-init11914205965857133159.clj:6):
+; error: java.lang.AssertionError: Assert failed: (let* [and__5531__auto__ (> 0 coin)] (if and__5531__auto__ (pos? coin) and__5531__auto__)) (form-init11914205965857133159.clj:6)
+; expected:
+(= (issue 25 #{1 100 25 5 10}) '(25))
+; 9 tests finished, problems found. 😭 errors: 9, failures: 0, ns: 1, vars: 9
+clj꞉change.core꞉> 
+; Evaluating file: core.clj
+#'change.core/issue
+clj꞉change.core꞉> (issue -5 #{1 2 5})
+; Execution error (AssertionError) at change.core/issue (core.clj:6).
+; Assert failed: (and (> 0 coin) (pos? coin))
+clj꞉change.core꞉> 
+; Running all project tests…
+; ERROR in change.core-test/cannot-find-negative-change-values (core.clj:34):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:34)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue -5 #{1 2 5}))
+; ERROR in change.core-test/change-with-elbonia-coins (core.clj:18):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:18)
+; expected:
+(= (issue 63 #{1 21 25 5 10}) '(21 21 21))
+; ERROR in change.core-test/change-with-lilliputian-coins (core.clj:14):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:14)
+; expected:
+(= (issue 23 #{20 1 4 15 50}) '(4 4 15))
+; ERROR in change.core-test/error-testing-for-change-smallet-than-the-smallest-coin (core.clj:30):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:30)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 3 #{5 10}))
+; ERROR in change.core-test/error-testing-for-no-valid-change (core.clj:38):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:38)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 10 #{20 3 8}))
+; ERROR in change.core-test/large-target-values (core.clj:22):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:22)
+; expected:
+(=
+ (issue 999 #{20 1 50 100 2 5 10})
+ '(2 2 5 20 20 50 100 100 100 100 100 100 100 100 100))
+; ERROR in change.core-test/multiple-coin-change (core.clj:10):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:10)
+; expected:
+(= (issue 15 #{1 100 25 5 10}) '(5 10))
+; ERROR in change.core-test/no-coins-make-zero-change (core.clj:26):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:26)
+; expected:
+(empty? (issue 0 #{1 21 25 5 10}))
+; ERROR in change.core-test/single-coin-change (core.clj:6):
+; error: java.lang.AssertionError: Assert failed: (and (> 0 coin) (pos? coin)) (core.clj:6)
+; expected:
+(= (issue 25 #{1 100 25 5 10}) '(25))
+; 9 tests finished, problems found. 😭 errors: 9, failures: 0, ns: 1, vars: 9
+clj꞉change.core꞉> (issue 10 #{20 3 8})
+; Execution error (AssertionError) at change.core/issue (core.clj:6).
+; Assert failed: (and (> 0 coin) (pos? coin))
+clj꞉change.core꞉> 
+; Evaluating file: core.clj
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue -5 #{1 2 5}))
+clj꞉change.core꞉> 
+; Running all project tests…
+; ERROR in change.core-test/cannot-find-negative-change-values (core.clj:34):
+; error: java.lang.AssertionError: cannot change (core.clj:34)
+; expected:
+#'change.core/issue
+; ERROR in change.core-test/change-with-elbonia-coins (core.clj:18):
+; error: java.lang.AssertionError: cannot change (core.clj:18)
+; expected:
+(= (issue 63 #{1 21 25 5 10}) '(21 21 21))
+; ERROR in change.core-test/change-with-lilliputian-coins (core.clj:14):
+; error: java.lang.AssertionError: cannot change (core.clj:14)
+; expected:
+(= (issue 23 #{20 1 4 15 50}) '(4 4 15))
+; ERROR in change.core-test/error-testing-for-change-smallet-than-the-smallest-coin (core.clj:30):
+; error: java.lang.AssertionError: cannot change (core.clj:30)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 3 #{5 10}))
+; ERROR in change.core-test/error-testing-for-no-valid-change (core.clj:38):
+; error: java.lang.AssertionError: cannot change (core.clj:38)
+; expected:
+(thrown-with-msg?
+ IllegalArgumentException
+ #"cannot change"
+ (issue 10 #{20 3 8}))
+; ERROR in change.core-test/large-target-values (core.clj:22):
+; error: java.lang.AssertionError: cannot change (core.clj:22)
+; expected:
+(=
+ (issue 999 #{20 1 50 100 2 5 10})
+ '(2 2 5 20 20 50 100 100 100 100 100 100 100 100 100))
+; ERROR in change.core-test/multiple-coin-change (core.clj:10):
+; error: java.lang.AssertionError: cannot change (core.clj:10)
+; expected:
+(= (issue 15 #{1 100 25 5 10}) '(5 10))
+; ERROR in change.core-test/no-coins-make-zero-change (core.clj:26):
+; error: java.lang.AssertionError: cannot change (core.clj:26)
+; expected:
+(empty? (issue 0 #{1 21 25 5 10}))
+; ERROR in change.core-test/single-coin-change (core.clj:6):
+; error: java.lang.AssertionError: cannot change (core.clj:6)
+; expected:
+(= (issue 25 #{1 100 25 5 10}) '(25))
+; 9 tests finished, problems found. 😭 errors: 9, failures: 0, ns: 1, vars: 9
+clj꞉change.core꞉> 
+(issue 10 #{20 3 8})
+; Execution error (AssertionError) at change.core/issue (core.clj:7).
+; cannot change
+clj꞉change.core꞉> 
+; Evaluating file: core.clj
+#'change.core/issue
+clj꞉change.core꞉> 
+(issue 10 #{20 3 8})
+; Execution error (IllegalArgumentException) at change.core/issue (core.clj:7).
+; cannot change
+clj꞉change.core꞉> 
+; Running all project tests…
+; ERROR in change.core-test/change-with-elbonia-coins (core.clj:18):
+; error: java.lang.IllegalArgumentException: cannot change (core.clj:18)
+; expected:
+(= (issue 63 #{1 21 25 5 10}) '(21 21 21))
+; ERROR in change.core-test/change-with-lilliputian-coins (core.clj:14):
+; error: java.lang.IllegalArgumentException: cannot change (core.clj:14)
+; expected:
+(= (issue 23 #{20 1 4 15 50}) '(4 4 15))
+; ERROR in change.core-test/large-target-values (core.clj:22):
+; error: java.lang.IllegalArgumentException: cannot change (core.clj:22)
+; expected:
+(=
+ (issue 999 #{20 1 50 100 2 5 10})
+ '(2 2 5 20 20 50 100 100 100 100 100 100 100 100 100))
+; ERROR in change.core-test/multiple-coin-change (core.clj:10):
+; error: java.lang.IllegalArgumentException: cannot change (core.clj:10)
+; expected:
+(= (issue 15 #{1 100 25 5 10}) '(5 10))
+; ERROR in change.core-test/no-coins-make-zero-change (core.clj:26):
+; error: java.lang.IllegalArgumentException: cannot change (core.clj:26)
+; expected:
+(empty? (issue 0 #{1 21 25 5 10}))
+; ERROR in change.core-test/single-coin-change (core.clj:6):
+; error: java.lang.IllegalArgumentException: cannot change (core.clj:6)
+; expected:
+(= (issue 25 #{1 100 25 5 10}) '(25))
+; 9 tests finished, problems found. 😭 errors: 6, failures: 0, ns: 1, vars: 9
+clj꞉change.core꞉> (<= 0 10
+                      )
+true
+clj꞉change.core꞉> 
+(issue 0 #{1, 5, 10, 21, 25})
+; Execution error (IllegalArgumentException) at change.core/issue (core.clj:7).
+; cannot change
+clj꞉change.core꞉> 
+(issue 0 #{1, 5, 10, 21, 25})
+; Evaluating file: core.clj
+#'change.core/issue
+clj꞉change.core꞉> 
+(<= 0 10
+                      )
+true
+clj꞉change.core꞉> (issue 0 #{1, 5, 10, 21, 25})
+; Execution error (NullPointerException) at change.core/div-with-remainder (core.clj:4).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉change.core꞉> 
+; Evaluating file: core.clj
+#'change.core/issue
+clj꞉change.core꞉> 
+(issue 0 #{1, 5, 10, 21, 25})
+; Execution error (NullPointerException) at change.core/div-with-remainder (core.clj:4).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉change.core꞉> 
+#'change.core/div-with-remainder
+clj꞉change.core꞉> 
+#'change.core/issue
+clj꞉change.core꞉> 
+(issue 0 #{1, 5, 10, 21, 25})
+; Execution error (NullPointerException) at change.core/div-with-remainder (form-init11914205965857133159.clj:4).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉change.core꞉> 
+(quot 0 5)
 0
-clj꞉change.core-test꞉> 
-(rem 50 25)
-0
-clj꞉change.core-test꞉> 
-(rem 50 24)
-2
-clj꞉change.core-test꞉> 
+clj꞉change.core꞉> 
+(quot 5 0)
+; Execution error (ArithmeticException) at change.core/eval8365 (form-init11914205965857133159.clj:466).
+; / by zero
+clj꞉change.core꞉> 
+#'change.core/issue
+clj꞉change.core꞉> 
+(issue 0 #{1, 5, 10, 21, 25})
+; Execution error (NullPointerException) at change.core/div-with-remainder (form-init11914205965857133159.clj:4).
+; Cannot invoke "Object.getClass()" because "x" is null
+clj꞉change.core꞉> 
