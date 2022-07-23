@@ -1,0 +1,257 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.28.5"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉pangram.core꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉pangram.core꞉> 
+; Syntax error compiling at (d:\Repos\Hakus\clojure\pangram\src\pangram\core.clj:7:12).
+; Unable to resolve symbol: alphabet in this context
+clj꞉pangram.core꞉> 
+; Evaluating file: core.clj
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+(pangram? "hello")
+true
+clj꞉pangram.core꞉> 
+(pangram? "hello")
+true
+clj꞉pangram.core꞉> 
+(contains? "hello" "h")
+; Execution error (IllegalArgumentException) at pangram.core/eval7873 (form-init10736180437190161119.clj:35).
+; contains? not supported on type: java.lang.String
+clj꞉pangram.core꞉> 
+(some #{"h"} "hello")
+nil
+clj꞉pangram.core꞉> 
+(some #{"h"} (seq "hello"))
+nil
+clj꞉pangram.core꞉> 
+(some #{"h"} (sequence "hello"))
+nil
+clj꞉pangram.core꞉> 
+(some "h" "hello")
+; Execution error (ClassCastException) at pangram.core/eval7881 (form-init10736180437190161119.clj:48).
+; class java.lang.String cannot be cast to class clojure.lang.IFn (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉pangram.core꞉> 
+(some #(= "h" %) "hello")
+nil
+clj꞉pangram.core꞉> 
+(some #(= "h" %) "hello")
+nil
+clj꞉pangram.core꞉> 
+(some #(= "h" %) (seq "hello"))
+nil
+clj꞉pangram.core꞉> 
+(some #(= "h" %) (sequence "hello"))
+nil
+clj꞉pangram.core꞉> (sequence "hello")
+(\h \e \l \l \o)
+clj꞉pangram.core꞉> 
+(some #(= "\h" %) (sequence "hello"))
+; Syntax error reading source at (REPL:66:14).
+; Unsupported escape character: \h
+clj꞉pangram.core꞉> 
+(some #(= \h %) (sequence "hello"))
+true
+clj꞉pangram.core꞉> 
+(some #(= \h %) (seq"hello"))
+true
+clj꞉pangram.core꞉> 
+(some #(= \h %) "hello")
+true
+clj꞉pangram.core꞉> 
+; Evaluating file: core.clj
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+(pangram? "test")
+(nil nil nil nil true nil nil nil nil nil nil nil nil nil nil nil nil nil true true nil nil nil nil nil nil)
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+(pangram? "test")
+false
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lazy dog")
+; Syntax error compiling at (d:\Repos\Hakus\clojure\pangram\.calva\output-window\output.calva-repl:92:1).
+; Unable to resolve symbol: pangram? in this context
+clj꞉pangram.core꞉> 
+; Evaluating file: core.clj
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lay dog")
+false
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the laz
+           y dog")
+; Evaluating file: core_test.clj
+#'pangram.core-test/upper-and-lower-not-counted-separately
+; Running tests for pangram.core-test...
+; FAIL in pangram.core-test/mixed-case-and-punctuation (core_test.clj:32):
+; expected:
+(pangram? "\"Five quacking Zephyrs jolt my wax bed.\"")
+; actual:
+(not (pangram? "\"Five quacking Zephyrs jolt my wax bed.\""))
+; 9 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 9
+clj꞉pangram.core-test꞉> 
+; Evaluating file: core.clj
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+; Evaluating file: core.clj
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+; Evaluating file: core_test.clj
+#'pangram.core-test/upper-and-lower-not-counted-separately
+; Running tests for pangram.core-test...
+; 9 tests finished, all passing 👍, ns: 1, vars: 9
+clj꞉pangram.core-test꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+; Evaluating file: core.clj
+#'pangram.core/pangram?
+; Running tests for pangram.core-test...
+; FAIL in pangram.core-test/empty-sentence (core_test.clj:5):
+; expected:
+(false? (pangram? ""))
+; actual:
+(not (false? true))
+; FAIL in pangram.core-test/lowercase-pangram (core_test.clj:8):
+; expected:
+(pangram? "the quick brown fox jumps over the lazy dog")
+; actual:
+(not (pangram? "the quick brown fox jumps over the lazy dog"))
+; FAIL in pangram.core-test/mixed-case-and-punctuation (core_test.clj:32):
+; expected:
+(pangram? "\"Five quacking Zephyrs jolt my wax bed.\"")
+; actual:
+(not (pangram? "\"Five quacking Zephyrs jolt my wax bed.\""))
+; FAIL in pangram.core-test/with-numbers (core_test.clj:24):
+; expected:
+(pangram? "the 1 quick brown fox jumps over the 2 lazy dogs")
+; actual:
+(not (pangram? "the 1 quick brown fox jumps over the 2 lazy dogs"))
+; FAIL in pangram.core-test/with-underscores (core_test.clj:21):
+; expected:
+(pangram? "the_quick_brown_fox_jumps_over_the_lazy_dog")
+; actual:
+(not (pangram? "the_quick_brown_fox_jumps_over_the_lazy_dog"))
+; 9 tests finished, problems found. 😭 errors: 0, failures: 5, ns: 1, vars: 9
+clj꞉pangram.core-test꞉> (pangram? "the quick brown fox jumps over the lazy dog")
+false
+clj꞉pangram.core꞉> 
+(set "the quick brown fox jumps over the lazy dog")
+#{\space \a \b \c \d \e \f \g \h \i \j \k \l \m \n \o \p \q \r \s \t \u \v \w \x \y \z}
+clj꞉pangram.core꞉> 
+;; = every? - Example 4 = 
+
+;; every? can replace clojure.set/subset? if and only if
+;; the sets do not contain false / nil values
+
+(subset? #{1}   #{1 2}) ;;=> true
+(every?  #{1 2} #{1}  ) ;;=> true ✔
+
+(subset? #{1 3} #{1 2}) ;;=> false
+(every?  #{1 2} #{1 3}) ;;=> false ✔
+
+;; however, invoking a set with a value returns the matched element,
+;; causing the comparison below to fail
+
+(subset? #{true false} #{true false}) ;;=> true
+(every?  #{true false} #{true false}) ;;=> false ✘ 😦
+
+;; See also:
+some
+not-any?
+not-every?
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+(set "the quick brown fox jumps over the lazy dog")
+#{\space \a \b \c \d \e \f \g \h \i \j \k \l \m \n \o \p \q \r \s \t \u \v \w \x \y \z}
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lay dog")
+false
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> (set (clojure.string/lower-case "the quick brown fox jumps over the lazy dog"
+                                                   ))
+#{\space \a \b \c \d \e \f \g \h \i \j \k \l \m \n \o \p \q \r \s \t \u \v \w \x \y \z}
+clj꞉pangram.core꞉> 
+; Syntax error compiling at (d:\Repos\Hakus\clojure\pangram\src\pangram\core.clj:14:7).
+; No such namespace: string
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram2?
+clj꞉pangram.core꞉> 
+(pangram2? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> 
+; Evaluating file: core.clj
+#'pangram.core/pangram2?
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lazy dog")
+false
+clj꞉pangram.core꞉> 
+(pangram2? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram2?
+clj꞉pangram.core꞉> 
+(pangram2? "the quick brown fox jumps over the lazy dog")
+#{\space \a \b \c \d \e \f \g \h \i \j \k \l \m \n \o \p \q \r \s \t \u \v \w \x \y \z}
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> 
+#'pangram.core/pangram?
+clj꞉pangram.core꞉> 
+(pangram? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> 
+#'pangram.core/bad-pangram?
+clj꞉pangram.core꞉> 
+(bad-pangram? "the quick brown fox jumps over the lazy dog")
+true
+clj꞉pangram.core꞉> 
+(bad-pangram? "the quick brown fox jumps over the la dog")
+false
+clj꞉pangram.core꞉> 

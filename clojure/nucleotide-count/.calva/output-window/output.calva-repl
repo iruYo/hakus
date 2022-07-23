@@ -1,0 +1,534 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.28.5"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉nucleotide-count.core꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉nucleotide-count.core꞉> 
+(count \A "GATTACA")
+; Syntax error (ArityException) compiling count at (d:\Repos\Hakus\clojure\nucleotide-count\.calva\output-window\output.calva-repl:21:1).
+; Wrong number of args (2) passed to: clojure.core/count--inliner--5538
+clj꞉nucleotide-count.core꞉> 
+(count (filter \A "GATTACA"))
+; Execution error (ClassCastException) at nucleotide-count.core/eval7844 (form-init16578827168865786265.clj:25).
+; class java.lang.Character cannot be cast to class clojure.lang.IFn (java.lang.Character is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉nucleotide-count.core꞉> 
+(count (filter (= \A) "GATTACA"))
+; Execution error (ClassCastException) at nucleotide-count.core/eval7846 (form-init16578827168865786265.clj:29).
+; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉nucleotide-count.core꞉> 
+(count (filter (partial = \A) "GATTACA"))
+3
+clj꞉nucleotide-count.core꞉> 
+(count (filter (partial = \C) "GATTACA"))
+1
+clj꞉nucleotide-count.core꞉> 
+(count (filter (partial = \C) "GATTACA"))
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+; Execution error (UnsupportedOperationException) at nucleotide-count.core/nucleotide-counts (form-init16578827168865786265.clj:4).
+; count not supported on this type: core$partial$fn__5859
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+1
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+(3 1 1 2)
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+; Error printing return value (ClassCastException) at clojure.core/key (core.clj:1569).
+; class java.lang.Character cannot be cast to class java.util.Map$Entry (java.lang.Character and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉nucleotide-count.core꞉> 
+; Error printing return value (ClassCastException) at clojure.core/key (core.clj:1569).
+; class java.lang.Character cannot be cast to class java.util.Map$Entry (java.lang.Character and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+; Error printing return value (ClassCastException) at clojure.core/key (core.clj:1569).
+; class java.lang.Character cannot be cast to class java.util.Map$Entry (java.lang.Character and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+; Execution error (ClassCastException) at nucleotide-count.core/eval7900$nucleotide-counts$iter$fn (form-init16578827168865786265.clj:10).
+; class java.lang.Character cannot be cast to class java.util.Map$Entry (java.lang.Character and java.util.Map$Entry are in module java.base of loader 'bootstrap')
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({nil 3} {nil 1} {nil 1} {nil 2})
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({nil 3} {nil 1} {nil 1} {nil 2})
+clj꞉nucleotide-count.core꞉> 
+(keyword \S)
+nil
+clj꞉nucleotide-count.core꞉> 
+(string \S)
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\.calva\output-window\output.calva-repl:92:1).
+; Unable to resolve symbol: string in this context
+clj꞉nucleotide-count.core꞉> 
+(str \s)
+"s"
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(str \s)
+"s"
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({:A 3} {:C 1} {:G 1} {:T 2})
+clj꞉nucleotide-count.core꞉> 
+; Evaluating file: core_test.clj
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\test\nucleotide_count\core_test.clj:6:12).
+; No such namespace: nucleotide-count
+; Evaluation of file core_test.clj failed: class clojure.lang.Compiler$CompilerException
+; Running tests for nucleotide-count.core-test...
+; No tests found. 😱, ns: 0, vars: 0
+clj꞉nucleotide-count.core-test꞉> 
+; Evaluating file: core_test.clj
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\test\nucleotide_count\core_test.clj:6:12).
+; No such namespace: nucleotide-count
+; Evaluation of file core_test.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉nucleotide-count.core-test꞉> 
+; Evaluating file: core_test.clj
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\test\nucleotide_count\core_test.clj:6:12).
+; No such namespace: nucleotide-count
+; Evaluation of file core_test.clj failed: class clojure.lang.Compiler$CompilerException
+; Running tests for nucleotide-count.core-test...
+; No tests found. 😱, ns: 0, vars: 0
+clj꞉nucleotide-count.core-test꞉> 
+; Evaluating file: core_test.clj
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\test\nucleotide_count\core_test.clj:6:12).
+; Unable to resolve symbol: count-of-nucleotide-in-strand in this context
+; Evaluation of file core_test.clj failed: class clojure.lang.Compiler$CompilerException
+; Running tests for nucleotide-count.core-test...
+; No tests found. 😱, ns: 0, vars: 0
+clj꞉nucleotide-count.core-test꞉> 
+; Evaluating file: core_test.clj
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\test\nucleotide_count\core_test.clj:6:12).
+; Unable to resolve symbol: count-of-nucleotide-in-strand in this context
+; Evaluation of file core_test.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉nucleotide-count.core-test꞉> 
+nil
+clj꞉nucleotide-count.core-test꞉> 
+; Evaluating file: core_test.clj
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\test\nucleotide_count\core_test.clj:6:12).
+; Unable to resolve symbol: count-of-nucleotide-in-strand in this context
+; Evaluation of file core_test.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉nucleotide-count.core-test꞉> 
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\test\nucleotide_count\core_test.clj:6:12).
+; Unable to resolve symbol: count-of-nucleotide-in-strand in this context
+clj꞉nucleotide-count.core-test꞉> 
+; Evaluating file: core.clj
+#'nucleotide-count.core/count-of-nucleotide-in-strand
+clj꞉nucleotide-count.core꞉> 
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+clj꞉nucleotide-count.core-test꞉> 
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+; Running tests for nucleotide-count.core-test...
+; FAIL in nucleotide-count.core-test/counts-all-nucleotides (core_test.clj:27):
+; expected:
+{\A 20, \T 21, \G 17, \C 12}
+; actual:
+({:A 20} {:C 12} {:G 17} {:T 21})
+; ERROR in nucleotide-count.core-test/counts-only-thymidine (RT.java:20):
+; error: java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Character (RT.java:20)
+; expected:
+(= 1 (count-of-nucleotide-in-strand \T "GGGGGTAACCCGG"))
+; ERROR in nucleotide-count.core-test/empty-dna-strand-has-no-adenosine (RT.java:6):
+; error: java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Character (RT.java:6)
+; expected:
+(= 0 (count-of-nucleotide-in-strand \A ""))
+; FAIL in nucleotide-count.core-test/empty-dna-strand-has-no-nucleotides (core_test.clj:9):
+; expected:
+{\A 0, \T 0, \C 0, \G 0}
+; actual:
+()
+; ERROR in nucleotide-count.core-test/repetitive-cytidine-gets-counted (RT.java:13):
+; error: java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Character (RT.java:13)
+; expected:
+(= 5 (count-of-nucleotide-in-strand \C "CCCCC"))
+; FAIL in nucleotide-count.core-test/repetitive-sequence-has-only-guanosine (core_test.clj:16):
+; expected:
+{\A 0, \T 0, \C 0, \G 8}
+; actual:
+({:G 8})
+; 7 tests finished, problems found. 😭 errors: 3, failures: 3, ns: 1, vars: 7
+clj꞉nucleotide-count.core-test꞉> 
+(assoc \A 0)
+; Execution error (ArityException) at nucleotide-count.core-test/eval8513 (form-init16578827168865786265.clj:187).
+; Wrong number of args (2) passed to: clojure.core/assoc--5433
+clj꞉nucleotide-count.core-test꞉> 
+(assoc {} \A 0)
+{\A 0}
+clj꞉nucleotide-count.core-test꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0} {\A 0, \T 0, \C 0, \G 1} {\A 0, \T 2, \C 0, \G 0})
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+(3 1 1 2)
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({\A 3} {\C 1} {\G 1} {\T 2})
+clj꞉nucleotide-count.core꞉> 
+(assoc {\A 3} {\C 1} {\G 1} {\T 2})
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0} {\A 0, \T 0, \C 0, \G 1} {\A 0, \T 2, \C 0, \G 0})
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0} {\A 0, \T 0, \C 0, \G 1} {\A 0, \T 2, \C 0, \G 0})
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0} {\A 0, \T 0, \C 0, \G 1} {\A 0, \T 2, \C 0, \G 0})
+clj꞉nucleotide-count.core꞉> 
+(conj {\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0})
+{\A 0, \T 0, \C 1, \G 0}
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(conj {\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0})
+{\A 0, \T 0, \C 1, \G 0}
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0} {\A 0, \T 0, \C 0, \G 1} {\A 0, \T 2, \C 0, \G 0})
+clj꞉nucleotide-count.core꞉> 
+; Syntax error macroexpanding clojure.core/let at (d:\Repos\Hakus\clojure\nucleotide-count\src\nucleotide_count\core.clj:4:3).
+; ([nucleotides {\A 0, \T 0, \C 0, \G 0}] (for [nucleotide (set strand)] (->> strand (filter (partial = nucleotide)) count (assoc nucleotides nucleotide) conj))) - failed: vector? at: [:bindings] spec: :clojure.core.specs.alpha/bindings
+clj꞉nucleotide-count.core꞉> 
+; Syntax error macroexpanding clojure.core/let at (d:\Repos\Hakus\clojure\nucleotide-count\src\nucleotide_count\core.clj:4:3).
+; ([nucleotides {\A 0, \T 0, \C 0, \G 0}] (for [nucleotide (set strand)] (->> strand (filter (partial = nucleotide)) count (assoc nucleotides nucleotide)))) - failed: vector? at: [:bindings] spec: :clojure.core.specs.alpha/bindings
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(nucleotide-counts "GATTACA")
+({\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0} {\A 0, \T 0, \C 0, \G 1} {\A 0, \T 2, \C 0, \G 0})
+clj꞉nucleotide-count.core꞉> 
+(conj (nucleotide-counts "GATTACA"))
+({\A 3, \T 0, \C 0, \G 0} {\A 0, \T 0, \C 1, \G 0} {\A 0, \T 0, \C 0, \G 1} {\A 0, \T 2, \C 0, \G 0})
+clj꞉nucleotide-count.core꞉> 
+#dbg
+(type (nucleotide-counts "GATTACA"))
+clojure.lang.LazySeq
+clj꞉nucleotide-count.core꞉> 
+(type (nucleotide-counts "GATTACA"))
+clojure.lang.LazySeq
+clj꞉nucleotide-count.core꞉> 
+QUIT
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(type (nucleotide-counts "GATTACA"))
+clojure.lang.LazySeq
+clj꞉nucleotide-count.core꞉> 
+(conj (nucleotide-counts "GATTACA"))
+({\A 3} {\C 1} {\G 1} {\T 2})
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+({\A 3} {\C 1} {\G 1} {\T 2})
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+; Execution error (IllegalArgumentException) at nucleotide-count.core/nucleotide-counts (form-init16578827168865786265.clj:4).
+; Don't know how to create ISeq from: java.lang.Integer
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+(3 1 1 2)
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+; Error printing return value (ClassCastException) at nucleotide-count.core/nucleotide-counts$iter$fn (form-init16578827168865786265.clj:5).
+; class java.lang.Character cannot be cast to class clojure.lang.IFn (java.lang.Character is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+([\A 3] [\C 1] [\G 1] [\T 2])
+clj꞉nucleotide-count.core꞉> (into {} '([\A 3] [\C 1] [\G 1] [\T 2]))
+{\A 3, \C 1, \G 1, \T 2}
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(into {} '([\A 3] [\C 1] [\G 1] [\T 2]))
+{\A 3, \C 1, \G 1, \T 2}
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(into {} '([\A 3] [\C 1] [\G 1] [\T 2]))
+{\A 3, \C 1, \G 1, \T 2}
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTACA")
+{\A 3, \C 1, \G 1, \T 2}
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTAA")
+{\A 3, \C 0, \G 1, \T 2}
+clj꞉nucleotide-count.core꞉> 
+(nucleotide-counts "GATTAA")
+{\A 3, \C 0, \G 1, \T 2}
+clj꞉nucleotide-count.core꞉> 
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+; Running tests for nucleotide-count.core-test...
+; ERROR in nucleotide-count.core-test/counts-only-thymidine (RT.java:20):
+; error: java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Character (RT.java:20)
+; expected:
+(= 1 (count-of-nucleotide-in-strand \T "GGGGGTAACCCGG"))
+; ERROR in nucleotide-count.core-test/empty-dna-strand-has-no-adenosine (RT.java:6):
+; error: java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Character (RT.java:6)
+; expected:
+(= 0 (count-of-nucleotide-in-strand \A ""))
+; ERROR in nucleotide-count.core-test/repetitive-cytidine-gets-counted (RT.java:13):
+; error: java.lang.IllegalArgumentException: Don't know how to create ISeq from: java.lang.Character (RT.java:13)
+; expected:
+(= 5 (count-of-nucleotide-in-strand \C "CCCCC"))
+; 7 tests finished, problems found. 😭 errors: 3, failures: 0, ns: 1, vars: 7
+clj꞉nucleotide-count.core-test꞉> 
+(count-of-nucleotide-in-strand {\A 3, \C 0, \G 1, \T 2} \S)
+nil
+clj꞉nucleotide-count.core-test꞉> 
+(get {\A 3, \C 0, \G 1, \T 2} \S)
+nil
+clj꞉nucleotide-count.core-test꞉> 
+(get {\A 3, \C 0, \G 1, \T 2} \C)
+0
+clj꞉nucleotide-count.core-test꞉> 
+(count-of-nucleotide-in-strand {\A 3, \C 0, \G 1, \T 2} \C)
+0
+clj꞉nucleotide-count.core-test꞉> 
+(count-of-nucleotide-in-strand {\A 3, \C 0, \G 1, \T 2} \G)
+0
+clj꞉nucleotide-count.core-test꞉> 
+(count-of-nucleotide-in-strand {\A 3, \C 0, \G 1, \T 2} \T)
+0
+clj꞉nucleotide-count.core-test꞉> (get {\A 3, \C 0, \G 1, \T 2} \T)
+2
+clj꞉nucleotide-count.core-test꞉> 
+#'nucleotide-count.core/count-of-nucleotide-in-strand
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand {\A 3, \C 0, \G 1, \T 2} \T)
+2
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand {\A 3, \C 0, \G 1, \T 2} \T)
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+; Running tests for nucleotide-count.core-test...
+; FAIL in nucleotide-count.core-test/counts-only-thymidine (core_test.clj:20):
+; expected:
+1
+; actual:
+nil
+; FAIL in nucleotide-count.core-test/empty-dna-strand-has-no-adenosine (core_test.clj:6):
+; expected:
+0
+; actual:
+nil
+; FAIL in nucleotide-count.core-test/repetitive-cytidine-gets-counted (core_test.clj:13):
+; expected:
+5
+; actual:
+nil
+; FAIL in nucleotide-count.core-test/validates-nucleotides (core_test.clj:23):
+; expected:
+(thrown? Throwable (count-of-nucleotide-in-strand \X "GACT"))
+; actual:
+nil
+; 7 tests finished, problems found. 😭 errors: 0, failures: 4, ns: 1, vars: 7
+clj꞉nucleotide-count.core-test꞉> 
+(count-of-nucleotide-in-strand "GACT" \T)
+nil
+clj꞉nucleotide-count.core-test꞉> 
+(get (nucleotide-counts "GACT") strand)
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\.calva\output-window\output.calva-repl:394:1).
+; Unable to resolve symbol: strand in this context
+clj꞉nucleotide-count.core-test꞉> 
+(get (nucleotide-counts "GACT") strand)
+#'nucleotide-count.core/count-of-nucleotide-in-strand
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand {\A 3, \C 0, \G 1, \T 2} \T)
+; Execution error (IllegalArgumentException) at nucleotide-count.core/nucleotide-counts (form-init16578827168865786265.clj:4).
+; Don't know how to create ISeq from: java.lang.Character
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand \T {\A 3, \C 0, \G 1, \T 2})
+0
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand \A {\A 3, \C 0, \G 1, \T 2})
+0
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand \A "GACT")
+1
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand \A "GACCCCT")
+1
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand \C "GACCCCT")
+4
+clj꞉nucleotide-count.core꞉> 
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+; Running tests for nucleotide-count.core-test...
+; FAIL in nucleotide-count.core-test/validates-nucleotides (core_test.clj:23):
+; expected:
+(thrown? Throwable (count-of-nucleotide-in-strand \X "GACT"))
+; actual:
+nil
+; 7 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 7
+clj꞉nucleotide-count.core-test꞉> 
+([\A] 10)
+; Execution error (IndexOutOfBoundsException) at nucleotide-count.core-test/eval9120 (form-init16578827168865786265.clj:430).
+; null
+clj꞉nucleotide-count.core-test꞉> 
+; Syntax error compiling throw at (d:\Repos\Hakus\clojure\nucleotide-count\src\nucleotide_count\core.clj:13:5).
+; Too few arguments to throw, throw expects a single Throwable instance
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/count-of-nucleotide-in-strand
+clj꞉nucleotide-count.core꞉> 
+(count-of-nucleotide-in-strand \C "GACCCCT")
+; Execution error (AssertionError) at nucleotide-count.core/count-of-nucleotide-in-strand (form-init16578827168865786265.clj:12).
+; Wrong input.
+clj꞉nucleotide-count.core꞉> 
+(contains? [\A \C \G \T] \C)
+false
+clj꞉nucleotide-count.core꞉> (contains? [\A \C \G \T] \C)
+false
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/count-of-nucleotide-in-strand
+clj꞉nucleotide-count.core꞉> 
+(contains? [\A \C \G \T] \C)
+false
+clj꞉nucleotide-count.core꞉> (some nucleotide {\A \C \G \T}
+{\A \C, \G \T}
+clj꞉nucleotide-count.core꞉> (some nucleotide {\A \C \G \T})
+; Syntax error compiling at (d:\Repos\Hakus\clojure\nucleotide-count\.calva\output-window\output.calva-repl:454:29).
+; Unable to resolve symbol: nucleotide in this context
+clj꞉nucleotide-count.core꞉> 
+(some \C {\A \C \G \T})
+; Execution error (ClassCastException) at nucleotide-count.core/eval9137 (form-init16578827168865786265.clj:458).
+; class java.lang.Character cannot be cast to class clojure.lang.IFn (java.lang.Character is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉nucleotide-count.core꞉> 
+(some {\C} {\A \C \G \T})
+; Syntax error reading source at (REPL:462:11).
+; Map literal must contain an even number of forms
+clj꞉nucleotide-count.core꞉> 
+(some #{\C} )
+nil
+clj꞉nucleotide-count.core꞉> 
+(contains? \A #{\A \C \G \T})
+; Execution error (IllegalArgumentException) at nucleotide-count.core/eval9141 (form-init16578827168865786265.clj:469).
+; contains? not supported on type: java.lang.Character
+clj꞉nucleotide-count.core꞉> 
+(contains? #{\A \C \G \T} \A)
+true
+clj꞉nucleotide-count.core꞉> 
+(contains? #{\A \C \G \T} \K)
+false
+clj꞉nucleotide-count.core꞉> 
+#'nucleotide-count.core/count-of-nucleotide-in-strand
+clj꞉nucleotide-count.core꞉> 
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+; Running tests for nucleotide-count.core-test...
+; 7 tests finished, all passing 👍, ns: 1, vars: 7
+clj꞉nucleotide-count.core-test꞉> 
+(frequencies "GACCCCT")
+{\G 1, \A 1, \C 4, \T 1}
+clj꞉nucleotide-count.core-test꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+(contains? #{\A \C \G \T} \K)
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+; Running tests for nucleotide-count.core-test...
+; 7 tests finished, all passing 👍, ns: 1, vars: 7
+clj꞉nucleotide-count.core-test꞉> 
+#'nucleotide-count.core/nucleotide-counts
+clj꞉nucleotide-count.core꞉> 
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+; Running tests for nucleotide-count.core-test...
+; 7 tests finished, all passing 👍, ns: 1, vars: 7
+clj꞉nucleotide-count.core-test꞉> 
+#{\A, \B}
+#{\A \B}
+clj꞉nucleotide-count.core-test꞉> 
+#{\A, \B, \C}
+#{\A \B \C}
+clj꞉nucleotide-count.core-test꞉> 
+(merge #{\A \C \G \T} (frequencies "GACCCCT"))
+#{\A \C \G {\G 1, \A 1, \C 4, \T 1} \T}
+clj꞉nucleotide-count.core-test꞉> 
+(merge #{\A 0 \C 0 \G 0 \T 0} (frequencies "GACCCCT"))
+; Syntax error reading source at (REPL:513:30).
+; Duplicate key: 0
+clj꞉nucleotide-count.core-test꞉> 
+(\S (frequencies "GACCCCT"))
+; Execution error (ClassCastException) at nucleotide-count.core-test/eval9396 (form-init16578827168865786265.clj:517).
+; class java.lang.Character cannot be cast to class clojure.lang.IFn (java.lang.Character is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉nucleotide-count.core-test꞉> 
+(\C (frequencies "GACCCCT"))
+; Execution error (ClassCastException) at nucleotide-count.core-test/eval9398 (form-init16578827168865786265.clj:521).
+; class java.lang.Character cannot be cast to class clojure.lang.IFn (java.lang.Character is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉nucleotide-count.core-test꞉> 
+#'nucleotide-count.core/count-of-nucleotide-in-strand
+clj꞉nucleotide-count.core꞉> 
+; Evaluating file: core_test.clj
+#'nucleotide-count.core-test/counts-all-nucleotides
+; Running tests for nucleotide-count.core-test...
+; 7 tests finished, all passing 👍, ns: 1, vars: 7
+clj꞉nucleotide-count.core-test꞉> 
+({\G 1, \A 1, \C 4, \T 1} \T)
+1
+clj꞉nucleotide-count.core-test꞉> 

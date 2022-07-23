@@ -1,0 +1,1 @@
+["^ ","~$isogram?",["^ ","~:row",3,"~:col",1,"~:fixed-arities",["~#set",[1]],"~:name","^0","~:ns","~$isogram.core","~:top-ns","^7"],"~:filename","D:\\Repos\\Hakus\\clojure\\isogram\\src\\isogram\\core.clj"]

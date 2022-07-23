@@ -1,0 +1,1005 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.28.5"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉pig-latin.core꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉pig-latin.core꞉> 
+(take 1 "ABS")
+(\A)
+clj꞉pig-latin.core꞉> 
+(str "test" "ay")
+"testay"
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/translate
+clj꞉pig-latin.core꞉> 
+(translate "away")
+"away"
+clj꞉pig-latin.core꞉> (= \a (take 1 "away"))
+false
+clj꞉pig-latin.core꞉> (take 1 "away")
+(\a)
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/translate
+clj꞉pig-latin.core꞉> 
+(translate "away")
+"away"
+clj꞉pig-latin.core꞉> 
+(= \a (nth "away" 1))
+false
+clj꞉pig-latin.core꞉> 
+(nth "away" 1)
+\w
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/translate
+clj꞉pig-latin.core꞉> 
+(translate "away")
+"awayay"
+clj꞉pig-latin.core꞉> 
+; Evaluating file: core_test.clj
+#'pig-latin.core-test/a-whole-phrase
+clj꞉pig-latin.core-test꞉> 
+; Evaluating file: core_test.clj
+#'pig-latin.core-test/a-whole-phrase
+; Running tests for pig-latin.core-test...
+; FAIL in pig-latin.core-test/a-whole-phrase (core_test.clj:93):
+; expected:
+(= "ickquay astfay unray" (translate "quick fast run"))
+; actual:
+(not (= "ickquay astfay unray" "quick fast run"))
+; FAIL in pig-latin.core-test/word-beginning-with-a-vowel-and-followed-by-a-qu (core_test.clj:28):
+; expected:
+(= "equalay" (translate "equal"))
+; actual:
+(not (= "equalay" "equal"))
+; FAIL in pig-latin.core-test/word-beginning-with-ch (core_test.clj:57):
+; expected:
+(= "airchay" (translate "chair"))
+; actual:
+(not (= "airchay" "chair"))
+; FAIL in pig-latin.core-test/word-beginning-with-e (core_test.clj:12):
+; expected:
+(= "earay" (translate "ear"))
+; actual:
+(not (= "earay" "ear"))
+; FAIL in pig-latin.core-test/word-beginning-with-i (core_test.clj:16):
+; expected:
+(= "iglooay" (translate "igloo"))
+; actual:
+(not (= "iglooay" "igloo"))
+; FAIL in pig-latin.core-test/word-beginning-with-k (core_test.clj:38):
+; expected:
+(= "oalakay" (translate "koala"))
+; actual:
+(not (= "oalakay" "koala"))
+; FAIL in pig-latin.core-test/word-beginning-with-o (core_test.clj:20):
+; expected:
+(= "objectay" (translate "object"))
+; actual:
+(not (= "objectay" "object"))
+; FAIL in pig-latin.core-test/word-beginning-with-p (core_test.clj:34):
+; expected:
+(= "igpay" (translate "pig"))
+; actual:
+(not (= "igpay" "pig"))
+; FAIL in pig-latin.core-test/word-beginning-with-q-without-a-following-u (core_test.clj:51):
+; expected:
+(= "atqay" (translate "qat"))
+; actual:
+(not (= "atqay" "qat"))
+; FAIL in pig-latin.core-test/word-beginning-with-qu (core_test.clj:61):
+; expected:
+(= "eenquay" (translate "queen"))
+; actual:
+(not (= "eenquay" "queen"))
+; FAIL in pig-latin.core-test/word-beginning-with-qu-and-a-preceding-consonant (core_test.clj:66):
+; expected:
+(= "aresquay" (translate "square"))
+; actual:
+(not (= "aresquay" "square"))
+; FAIL in pig-latin.core-test/word-beginning-with-sch (core_test.clj:78):
+; expected:
+(= "oolschay" (translate "school"))
+; actual:
+(not (= "oolschay" "school"))
+; FAIL in pig-latin.core-test/word-beginning-with-th (core_test.clj:70):
+; expected:
+(= "erapythay" (translate "therapy"))
+; actual:
+(not (= "erapythay" "therapy"))
+; FAIL in pig-latin.core-test/word-beginning-with-thr (core_test.clj:74):
+; expected:
+(= "ushthray" (translate "thrush"))
+; actual:
+(not (= "ushthray" "thrush"))
+; FAIL in pig-latin.core-test/word-beginning-with-u (core_test.clj:24):
+; expected:
+(= "underay" (translate "under"))
+; actual:
+(not (= "underay" "under"))
+; FAIL in pig-latin.core-test/word-beginning-with-x (core_test.clj:47):
+; expected:
+(= "enonxay" (translate "xenon"))
+; actual:
+(not (= "enonxay" "xenon"))
+; FAIL in pig-latin.core-test/word-beginning-with-xr (core_test.clj:88):
+; expected:
+(= "xrayay" ("xray" translate))
+; actual:
+(not (= "xrayay" "xray"))
+; FAIL in pig-latin.core-test/word-beginning-with-y (core_test.clj:43):
+; expected:
+(= "ellowyay" (translate "yellow"))
+; actual:
+(not (= "ellowyay" "yellow"))
+; FAIL in pig-latin.core-test/word-beginning-with-yt (core_test.clj:83):
+; expected:
+(= "yttriaay" (translate "yttria"))
+; actual:
+(not (= "yttriaay" "yttria"))
+; 20 tests finished, problems found. 😭 errors: 0, failures: 19, ns: 1, vars: 20
+clj꞉pig-latin.core-test꞉> 
+(str (take 2 "testt"))
+"clojure.lang.LazySeq@1232"
+clj꞉pig-latin.core-test꞉> 
+ (take 2 "testt")
+(\t \e)
+clj꞉pig-latin.core-test꞉> 
+(pr-str (take 2 "testt"))
+"(\\t \\e)"
+clj꞉pig-latin.core-test꞉> 
+(apply str (take 2 "testt"))
+"te"
+clj꞉pig-latin.core-test꞉> 
+#'pig-latin.core/vowel-sound?
+clj꞉pig-latin.core꞉> 
+(vowel-sound? "test")
+false
+clj꞉pig-latin.core꞉> 
+(vowel-sound? "apple")
+false
+clj꞉pig-latin.core꞉> 
+(def vowel-sounds #{"a" "e" "i" "o" "u" "xr" "xy"})
+#'pig-latin.core/vowel-sounds
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "te")
+false
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "ap")
+false
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "xr")
+true
+clj꞉pig-latin.core꞉> 
+(first "test")
+\t
+clj꞉pig-latin.core꞉> 
+(ffirst "test")
+; Execution error (IllegalArgumentException) at pig-latin.core/eval8382 (form-init10822588610660777659.clj:190).
+; Don't know how to create ISeq from: java.lang.Character
+clj꞉pig-latin.core꞉> 
+(take 2 "test")
+(\t \e)
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowel-sound?
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "xr")
+true
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "xrapopa")
+false
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowel-sound?
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "xrapopa")
+false
+clj꞉pig-latin.core꞉> 
+(first "test")
+\t
+clj꞉pig-latin.core꞉> 
+(apply str (take 2 "test"))
+"te"
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowel-sound?
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "xrapopa")
+false
+clj꞉pig-latin.core꞉> 
+(apply str (take 2 "xrapopa"))
+"xr"
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "xr")
+true
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowel-sound?
+clj꞉pig-latin.core꞉> 
+(vowel-sound? "xrapopa")
+true
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowels
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowels
+clj꞉pig-latin.core꞉> (merge vowels #{"xr" "xy"})
+#{\a \e \i \o #{"xr" "xy"} \u}
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowel-sound?
+clj꞉pig-latin.core꞉>  (clojure.set/union vowels #{"xr" "xy"})
+#{\a \e "xr" \i \o "xy" \u}
+clj꞉pig-latin.core꞉> 
+(set "The quick brown fox jumps over the lazy dog")
+#{\space \a \b \c \d \e \f \g \h \i \j \k \l \m \n \o \p \q \r \s \T \t \u \v \w \x \y \z}
+clj꞉pig-latin.core꞉> 
+; Syntax error compiling at (d:\Repos\Hakus\clojure\pig-latin\src\pig_latin\core.clj:1:7967).
+; Unable to resolve symbol: def in this context
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/alphabet
+clj꞉pig-latin.core꞉> 
+; Syntax error compiling at (d:\Repos\Hakus\clojure\pig-latin\src\pig_latin\core.clj:6:17).
+; Unable to resolve symbol: difference in this context
+clj꞉pig-latin.core꞉> 
+; Syntax error macroexpanding clojure.core/ns at (d:\Repos\Hakus\clojure\pig-latin\src\pig_latin\core.clj:1:1).
+; (:require [clojure.set :refer [difference union]]) - failed: Extra input spec: :clojure.core.specs.alpha/ns-form
+clj꞉pig-latin.core꞉> 
+; Syntax error macroexpanding clojure.core/ns at (d:\Repos\Hakus\clojure\pig-latin\src\pig_latin\core.clj:1:1).
+; (:require [clojure.set :refer difference union]) - failed: Extra input spec: :clojure.core.specs.alpha/ns-form
+clj꞉pig-latin.core꞉> 
+; Syntax error macroexpanding clojure.core/ns at (d:\Repos\Hakus\clojure\pig-latin\src\pig_latin\core.clj:1:1).
+; (:require [clojure.set :refer (difference union)]) - failed: Extra input spec: :clojure.core.specs.alpha/ns-form
+clj꞉pig-latin.core꞉> 
+; Syntax error macroexpanding clojure.core/ns at (d:\Repos\Hakus\clojure\pig-latin\src\pig_latin\core.clj:1:1).
+; (:require [clojure.set :refer [difference union]]) - failed: Extra input spec: :clojure.core.specs.alpha/ns-form
+clj꞉pig-latin.core꞉> 
+nil
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/alphabet
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonants
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowels
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonants
+clj꞉pig-latin.core꞉> 
+consonants
+#{\b \c \d \f \g \h \j \k \l \m \n \p \q \r \s \T \t \v \w \x \y \z}
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/alphabet
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowels
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonants
+clj꞉pig-latin.core꞉> 
+consonants
+#{\b \c \d \f \g \h \j \k \l \m \n \p \q \r \s \t \v \w \x \y \z}
+clj꞉pig-latin.core꞉> 
+(take-while #(contains? consonants %) "chair")
+(\c \h)
+clj꞉pig-latin.core꞉> 
+(take-while #(contains? consonants %) "cair")
+(\c)
+clj꞉pig-latin.core꞉> 
+(str (take-while #(contains? consonants %) "cair"))
+"clojure.lang.LazySeq@82"
+clj꞉pig-latin.core꞉> 
+(nil? "")
+false
+clj꞉pig-latin.core꞉> 
+(empty? "")
+true
+clj꞉pig-latin.core꞉> 
+(empty? "a")
+false
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonant-sound?
+clj꞉pig-latin.core꞉> 
+(consonant-sound? "chair")
+false
+clj꞉pig-latin.core꞉> 
+(consonant-sound? "air")
+true
+clj꞉pig-latin.core꞉> 
+(split-with #(contains? consonants %) "chair")
+[(\c \h) (\a \i \r)]
+clj꞉pig-latin.core꞉> 
+(apply str (split-with #(contains? consonants %) "chair"))
+"clojure.lang.LazySeq@1026clojure.lang.LazySeq@1eda9"
+clj꞉pig-latin.core꞉> 
+(str (split-with #(contains? consonants %) "chair"))
+"[(\\c \\h) (\\a \\i \\r)]"
+clj꞉pig-latin.core꞉> 
+(map str (split-with #(contains? consonants %) "chair"))
+("clojure.lang.LazySeq@1026" "clojure.lang.LazySeq@1eda9")
+clj꞉pig-latin.core꞉> 
+(map (apply str) (split-with #(contains? consonants %) "chair"))
+; Execution error (ArityException) at pig-latin.core/eval8533 (form-init10822588610660777659.clj:325).
+; Wrong number of args (1) passed to: clojure.core/apply
+clj꞉pig-latin.core꞉> 
+(map (comp apply str) (split-with #(contains? consonants %) "chair"))
+; Error printing return value (ArityException) at clojure.lang.AFn/throwArity (AFn.java:429).
+; Wrong number of args (1) passed to: clojure.core/apply
+clj꞉pig-latin.core꞉> 
+(map str (split-with #(contains? consonants %) "chair"))
+("clojure.lang.LazySeq@1026" "clojure.lang.LazySeq@1eda9")
+clj꞉pig-latin.core꞉> 
+(map (comp apply str) (split-with #(contains? consonants %) "chair"))
+; Error printing return value (ArityException) at clojure.lang.AFn/throwArity (AFn.java:429).
+; Wrong number of args (1) passed to: clojure.core/apply
+clj꞉pig-latin.core꞉> 
+(map (comp str apply) (split-with #(contains? consonants %) "chair"))
+; Error printing return value (ArityException) at clojure.lang.AFn/throwArity (AFn.java:429).
+; Wrong number of args (1) passed to: clojure.core/apply
+clj꞉pig-latin.core꞉> 
+(map #(apply str %) (split-with #(contains? consonants %) "chair"))
+("ch" "air")
+clj꞉pig-latin.core꞉> 
+(map (apply str) (split-with #(contains? consonants %) "chair"))
+; Execution error (ArityException) at pig-latin.core/eval8598 (form-init10822588610660777659.clj:347).
+; Wrong number of args (1) passed to: clojure.core/apply
+clj꞉pig-latin.core꞉> 
+; Evaluating file: core_test.clj
+#'pig-latin.core-test/a-whole-phrase
+; Running tests for pig-latin.core-test...
+; FAIL in pig-latin.core-test/a-whole-phrase (core_test.clj:93):
+; expected:
+"ickquay astfay unray"
+; actual:
+"quick fast run"
+; FAIL in pig-latin.core-test/word-beginning-with-a-vowel-and-followed-by-a-qu (core_test.clj:28):
+; expected:
+"equalay"
+; actual:
+"equal"
+; FAIL in pig-latin.core-test/word-beginning-with-ch (core_test.clj:57):
+; expected:
+"airchay"
+; actual:
+"chair"
+; FAIL in pig-latin.core-test/word-beginning-with-e (core_test.clj:12):
+; expected:
+"earay"
+; actual:
+"ear"
+; FAIL in pig-latin.core-test/word-beginning-with-i (core_test.clj:16):
+; expected:
+"iglooay"
+; actual:
+"igloo"
+; FAIL in pig-latin.core-test/word-beginning-with-k (core_test.clj:38):
+; expected:
+"oalakay"
+; actual:
+"koala"
+; FAIL in pig-latin.core-test/word-beginning-with-o (core_test.clj:20):
+; expected:
+"objectay"
+; actual:
+"object"
+; FAIL in pig-latin.core-test/word-beginning-with-p (core_test.clj:34):
+; expected:
+"igpay"
+; actual:
+"pig"
+; FAIL in pig-latin.core-test/word-beginning-with-q-without-a-following-u (core_test.clj:51):
+; expected:
+"atqay"
+; actual:
+"qat"
+; FAIL in pig-latin.core-test/word-beginning-with-qu (core_test.clj:61):
+; expected:
+"eenquay"
+; actual:
+"queen"
+; FAIL in pig-latin.core-test/word-beginning-with-qu-and-a-preceding-consonant (core_test.clj:66):
+; expected:
+"aresquay"
+; actual:
+"square"
+; FAIL in pig-latin.core-test/word-beginning-with-sch (core_test.clj:78):
+; expected:
+"oolschay"
+; actual:
+"school"
+; FAIL in pig-latin.core-test/word-beginning-with-th (core_test.clj:70):
+; expected:
+"erapythay"
+; actual:
+"therapy"
+; FAIL in pig-latin.core-test/word-beginning-with-thr (core_test.clj:74):
+; expected:
+"ushthray"
+; actual:
+"thrush"
+; FAIL in pig-latin.core-test/word-beginning-with-u (core_test.clj:24):
+; expected:
+"underay"
+; actual:
+"under"
+; FAIL in pig-latin.core-test/word-beginning-with-x (core_test.clj:47):
+; expected:
+"enonxay"
+; actual:
+"xenon"
+; FAIL in pig-latin.core-test/word-beginning-with-xr (core_test.clj:88):
+; expected:
+"xrayay"
+; actual:
+"xray"
+; FAIL in pig-latin.core-test/word-beginning-with-y (core_test.clj:43):
+; expected:
+"ellowyay"
+; actual:
+"yellow"
+; FAIL in pig-latin.core-test/word-beginning-with-yt (core_test.clj:83):
+; expected:
+"yttriaay"
+; actual:
+"yttria"
+; 20 tests finished, problems found. 😭 errors: 0, failures: 19, ns: 1, vars: 20
+clj꞉pig-latin.core-test꞉> 
+(translate "ear")
+"ear"
+clj꞉pig-latin.core-test꞉> 
+(def vowel-sounds (union vowels #{"xr" "xy"})
+; Syntax error compiling at (d:\Repos\Hakus\clojure\pig-latin\.calva\output-window\output.calva-repl:454:19).
+; Unable to resolve symbol: union in this context
+clj꞉pig-latin.core-test꞉> 
+; Evaluating file: core.clj
+#'pig-latin.core/translate
+clj꞉pig-latin.core꞉> 
+(def vowel-sounds (union vowels #{"xr" "xy"})
+#{\a \e "xr" \i \o "xy" \u}
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds "\e")
+; Syntax error reading source at (REPL:464:28).
+; Unsupported escape character: \e
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds \e)
+false
+clj꞉pig-latin.core꞉> 
+(contains? vowel-sounds \e)
+false
+clj꞉pig-latin.core꞉> vowel-sounds
+#{"e" "xr" "xy" "a" "i" "u" "o"}
+clj꞉pig-latin.core꞉> 
+(def vowel-sounds (union vowels #{"xr" "xy"})
+#{\a \e "xr" \i \o "xy" \u}
+clj꞉pig-latin.core꞉> 
+vowel-sounds
+#{"e" "xr" "xy" "a" "i" "u" "o"}
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/vowel-sound?
+clj꞉pig-latin.core꞉> 
+(translate "ear")
+"earay"
+clj꞉pig-latin.core꞉> 
+; Evaluating file: core_test.clj
+#'pig-latin.core-test/a-whole-phrase
+; Running tests for pig-latin.core-test...
+; FAIL in pig-latin.core-test/a-whole-phrase (core_test.clj:93):
+; expected:
+"ickquay astfay unray"
+; actual:
+"quick fast run"
+; FAIL in pig-latin.core-test/word-beginning-with-ch (core_test.clj:57):
+; expected:
+"airchay"
+; actual:
+"chair"
+; FAIL in pig-latin.core-test/word-beginning-with-k (core_test.clj:38):
+; expected:
+"oalakay"
+; actual:
+"koala"
+; FAIL in pig-latin.core-test/word-beginning-with-p (core_test.clj:34):
+; expected:
+"igpay"
+; actual:
+"pig"
+; FAIL in pig-latin.core-test/word-beginning-with-q-without-a-following-u (core_test.clj:51):
+; expected:
+"atqay"
+; actual:
+"qat"
+; FAIL in pig-latin.core-test/word-beginning-with-qu (core_test.clj:61):
+; expected:
+"eenquay"
+; actual:
+"queen"
+; FAIL in pig-latin.core-test/word-beginning-with-qu-and-a-preceding-consonant (core_test.clj:66):
+; expected:
+"aresquay"
+; actual:
+"square"
+; FAIL in pig-latin.core-test/word-beginning-with-sch (core_test.clj:78):
+; expected:
+"oolschay"
+; actual:
+"school"
+; FAIL in pig-latin.core-test/word-beginning-with-th (core_test.clj:70):
+; expected:
+"erapythay"
+; actual:
+"therapy"
+; FAIL in pig-latin.core-test/word-beginning-with-thr (core_test.clj:74):
+; expected:
+"ushthray"
+; actual:
+"thrush"
+; FAIL in pig-latin.core-test/word-beginning-with-x (core_test.clj:47):
+; expected:
+"enonxay"
+; actual:
+"xenon"
+; FAIL in pig-latin.core-test/word-beginning-with-y (core_test.clj:43):
+; expected:
+"ellowyay"
+; actual:
+"yellow"
+; FAIL in pig-latin.core-test/word-beginning-with-yt (core_test.clj:83):
+; expected:
+"yttriaay"
+; actual:
+"yttria"
+; 20 tests finished, problems found. 😭 errors: 0, failures: 13, ns: 1, vars: 20
+clj꞉pig-latin.core-test꞉> 
+; Evaluating file: core.clj
+#'pig-latin.core/translate
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonant-sound?
+clj꞉pig-latin.core꞉> 
+(translate "pig")
+#'pig-latin.core/translate
+clj꞉pig-latin.core꞉> 
+QUIT
+clj꞉pig-latin.core꞉> 
+(translate "pig")
+QUIT
+clj꞉pig-latin.core꞉> 
+(some "p")
+; Execution error (ArityException) at pig-latin.core/eval9212 (form-init10822588610660777659.clj:570).
+; Wrong number of args (1) passed to: clojure.core/some
+clj꞉pig-latin.core꞉> 
+(some? "p")
+true
+clj꞉pig-latin.core꞉> 
+(some? "")
+true
+clj꞉pig-latin.core꞉> 
+( "")
+#'pig-latin.core/consonant-sound?
+clj꞉pig-latin.core꞉> 
+(seq "")
+nil
+clj꞉pig-latin.core꞉> 
+(seq \A)
+; Execution error (IllegalArgumentException) at pig-latin.core/eval9225 (form-init10822588610660777659.clj:586).
+; Don't know how to create ISeq from: java.lang.Character
+clj꞉pig-latin.core꞉> 
+(seq \a)
+; Execution error (IllegalArgumentException) at pig-latin.core/eval9227 (form-init10822588610660777659.clj:590).
+; Don't know how to create ISeq from: java.lang.Character
+clj꞉pig-latin.core꞉> 
+(seq "ab")
+(\a \b)
+clj꞉pig-latin.core꞉> 
+(seq "ab")
+#'pig-latin.core/consonant-sound?
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonant-sound?
+clj꞉pig-latin.core꞉> 
+(translate "pig")
+"pig"
+clj꞉pig-latin.core꞉> 
+(true? "p")
+false
+clj꞉pig-latin.core꞉> 
+(nil?)
+; Syntax error (ArityException) compiling nil? at (d:\Repos\Hakus\clojure\pig-latin\.calva\output-window\output.calva-repl:608:1).
+; Wrong number of args (0) passed to: clojure.core/nil?--inliner--5461
+clj꞉pig-latin.core꞉> 
+(boolean "p")
+true
+clj꞉pig-latin.core꞉> 
+(boolean "")
+true
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonant-sound?
+clj꞉pig-latin.core꞉> 
+(translate "pig")
+"igpay"
+clj꞉pig-latin.core꞉> 
+; Evaluating file: core_test.clj
+#'pig-latin.core-test/a-whole-phrase
+; Running tests for pig-latin.core-test...
+; FAIL in pig-latin.core-test/a-whole-phrase (core_test.clj:93):
+; expected:
+"ickquay astfay unray"
+; actual:
+"uick fast runqay"
+; FAIL in pig-latin.core-test/word-beginning-with-qu (core_test.clj:61):
+; expected:
+"eenquay"
+; actual:
+"ueenqay"
+; FAIL in pig-latin.core-test/word-beginning-with-qu-and-a-preceding-consonant (core_test.clj:66):
+; expected:
+"aresquay"
+; actual:
+"uaresqay"
+; FAIL in pig-latin.core-test/word-beginning-with-yt (core_test.clj:83):
+; expected:
+"yttriaay"
+; actual:
+"iayttray"
+; 20 tests finished, problems found. 😭 errors: 0, failures: 4, ns: 1, vars: 20
+clj꞉pig-latin.core-test꞉> 
+; Syntax error reading source at (REPL:25:78).
+; Unmatched delimiter: )
+clj꞉pig-latin.core꞉> 
+; Syntax error reading source at (REPL:25:78).
+; Unmatched delimiter: )
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonant-from-word
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/split-consonant-from-word
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/translate
+clj꞉pig-latin.core꞉> 
+(split-consonant-from-word "square")
+("sq" "uare")
+clj꞉pig-latin.core꞉> 
+#'pig-latin.core/consonant-sound-with-qu?
+clj꞉pig-latin.core꞉> 
+(consonant-sound-with-qu? "square")
+("sq" "uare")
+clj꞉pig-latin.core꞉> 
+((juxt even? identity) (take 10 range)) 
+; Execution error (IllegalArgumentException) at java.lang.Object/toString (Object.java:246).
+; Don't know how to create ISeq from: clojure.core$range
+clj꞉pig-latin.core꞉> 
+((juxt even? identity) (take 10 (range)))
+; Execution error (IllegalArgumentException) at pig-latin.core/eval9543 (form-init10822588610660777659.clj:672).
+; Argument must be an integer: clojure.lang.LazySeq@9ebadac6
+clj꞉pig-latin.core꞉> 
+((juxt even? identity) '(1 2 3 4 5))
+; Execution error (IllegalArgumentException) at pig-latin.core/eval9545 (form-init10822588610660777659.clj:676).
+; Argument must be an integer: (1 2 3 4 5)
+clj꞉pig-latin.core꞉> 
+((juxt even? identity) '(1 2 3 4 5))
+; Execution error (IllegalArgumentException) at pig-latin.core/eval9547 (form-init10822588610660777659.clj:680).
+; Argument must be an integer: (1 2 3 4 5)
+clj꞉pig-latin.core꞉> 
+(identity 1)
+1
+clj꞉pig-latin.core꞉> 
+(map (juxt even? identity) '(1 2 3 4 5))
+([false 1] [true 2] [false 3] [true 4] [false 5])
+clj꞉pig-latin.core꞉> 
+(take 10 (iterate inc 3))
+(3 4 5 6 7 8 9 10 11 12)
+clj꞉pig-latin.core꞉> 
+(reduce
+ (fn [primes number]
+   (if (some zero? (map (partial mod number) primes))
+     primes
+     (conj primes number)))
+ [2]
+ (take 1000 (iterate inc 3)))
+[2
+ 3
+ 5
+ 7
+ 11
+ 13
+ 17
+ 19
+ 23
+ 29
+ 31
+ 37
+ 41
+ 43
+ 47
+ 53
+ 59
+ 61
+ 67
+ 71
+ 73
+ 79
+ 83
+ 89
+ 97
+ 101
+ 103
+ 107
+ 109
+ 113
+ 127
+ 131
+ 137
+ 139
+ 149
+ 151
+ 157
+ 163
+ 167
+ 173
+ 179
+ 181
+ 191
+ 193
+ 197
+ 199
+ 211
+ 223
+ 227
+ 229
+ ...]
+clj꞉pig-latin.core꞉> 
+(reduce
+ (fn [primes number]
+   (if (some zero? (map (partial mod number) primes))
+     primes
+     (conj primes number))) 
+ [2] (take 1000 (iterate inc 3)))
+[2
+ 3
+ 5
+ 7
+ 11
+ 13
+ 17
+ 19
+ 23
+ 29
+ 31
+ 37
+ 41
+ 43
+ 47
+ 53
+ 59
+ 61
+ 67
+ 71
+ 73
+ 79
+ 83
+ 89
+ 97
+ 101
+ 103
+ 107
+ 109
+ 113
+ 127
+ 131
+ 137
+ 139
+ 149
+ 151
+ 157
+ 163
+ 167
+ 173
+ 179
+ 181
+ 191
+ 193
+ 197
+ 199
+ 211
+ 223
+ 227
+ 229
+ ...]
+clj꞉pig-latin.core꞉> 
+(mod 2 3)
+2
+clj꞉pig-latin.core꞉> 
+(mod 2 4)
+2
+clj꞉pig-latin.core꞉> 
+(mod 2 5)
+2
+clj꞉pig-latin.core꞉> 
+(mod 2 6)
+2
+clj꞉pig-latin.core꞉> 
+(mod 2 7)
+2
+clj꞉pig-latin.core꞉> 
+(mod 2 8)
+2
+clj꞉pig-latin.core꞉> 
+(mod 3 2)
+1
+clj꞉pig-latin.core꞉> 
+(mod 3 4)
+3
+clj꞉pig-latin.core꞉> 
+(mod 3 5)
+3
+clj꞉pig-latin.core꞉> 
+(mod 2 5)
+2
+clj꞉pig-latin.core꞉> 
+(mod 3 2)
+1
+clj꞉pig-latin.core꞉> 
+(mod 4 2)
+0
+clj꞉pig-latin.core꞉> 
+(reduce
+ (fn [primes number]
+   (if (some zero? (map (partial mod number) primes))
+     primes
+     (conj primes number))) 
+ [2] (take 1000 (iterate inc 3)))
+[2
+ 3
+ 5
+ 7
+ 11
+ 13
+ 17
+ 19
+ 23
+ 29
+ 31
+ 37
+ 41
+ 43
+ 47
+ 53
+ 59
+ 61
+ 67
+ 71
+ 73
+ 79
+ 83
+ 89
+ 97
+ 101
+ 103
+ 107
+ 109
+ 113
+ 127
+ 131
+ 137
+ 139
+ 149
+ 151
+ 157
+ 163
+ 167
+ 173
+ 179
+ 181
+ 191
+ 193
+ 197
+ 199
+ 211
+ 223
+ 227
+ 229
+ ...]
+clj꞉pig-latin.core꞉> 
+(mod 3 2)
+1
+clj꞉pig-latin.core꞉> 
+(mod 2 3)
+2
+clj꞉pig-latin.core꞉> 
+(reduce
+ (fn [primes number]
+   (if (some zero? (map (#break partial mod number) primes))
+     primes
+     (conj primes number))) 
+ [2] (take 10 (iterate inc 3)))
+QUIT
+clj꞉pig-latin.core꞉> (reduce
+                      (fn [primes number]
+                        (if (some zero? (map (partial mod number) primes))
+                          primes
+                          (conj primes number)))
+                      [2] (take 10 (iterate inc 3)))
+QUIT
+clj꞉pig-latin.core꞉> QUIT
+; REPL history cleared
+clj꞉pig-latin.core꞉> 
+; nREPL Connection was closed
+; Jacking in...
+; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.28.5"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉pig-latin.core꞉> 
+; Jack-in done.
+clj꞉pig-latin.core꞉> 
+(mod 2 3)
+2
+clj꞉pig-latin.core꞉> 
+(mod 3 2)
+1
+clj꞉pig-latin.core꞉> 
+(map (partial mod 2) '(3))
+(2)
+clj꞉pig-latin.core꞉> 
+(mod 3 2)
+1
+clj꞉pig-latin.core꞉> (some zero? (seq (mod 3 2)))
+; Execution error (IllegalArgumentException) at pig-latin.core/eval7871 (form-init17905234754078934862.clj:953).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉pig-latin.core꞉> 
+(some zero? (sequence (mod 3 2)))
+; Execution error (IllegalArgumentException) at pig-latin.core/eval7873 (form-init17905234754078934862.clj:957).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉pig-latin.core꞉> 
+(some zero? (map (partial mod 3) [2]))
+nil
+clj꞉pig-latin.core꞉>(map (partial mod 3) [2])
+(1)
+clj꞉pig-latin.core꞉> 
+; Execution error (ClassCastException) at pig-latin.core/eval7879 (form-init17905234754078934862.clj:964).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉pig-latin.core꞉> 
+(reduce
+ (fn [primes number]
+   (if (some zero? (map (#break partial mod number) primes))
+     primes
+     (conj primes number)))
+ [2] (take 100 (iterate inc 1)))
+[2 1]
+clj꞉pig-latin.core꞉> 
+(reduce
+ (fn [primes number]
+   (if (some zero? (map (partial mod number) primes))
+     primes
+     (conj primes number)))
+ [2] (take 100 (iterate inc 1)))
+[2 1]
+clj꞉pig-latin.core꞉> 
+
+
+QUIT
+clj꞉pig-latin.core꞉> 
+(reduce
+ (fn [primes number]
+   (if (some zero? (map (partial mod number) primes))
+     primes
+     (conj primes number)))
+ [2] (take 100 (iterate inc 1)))
+[2 1]
+clj꞉pig-latin.core꞉> 
+(reduce
+ (fn [primes number]
+   (if (some zero? (map (partial mod number) primes))
+     primes
+     (conj primes number)))
+ [2] (take 1000 (iterate inc 1)))
+[2 1]
+clj꞉pig-latin.core꞉> 
+; nREPL Connection was closed

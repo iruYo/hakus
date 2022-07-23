@@ -1,0 +1,295 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.28.5"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉hamming-distance.core꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉hamming-distance.core꞉> 
+#'hamming-distance.core/distance
+clj꞉hamming-distance.core꞉> 
+(distance "GGACG" "GGTCG")
+; Syntax error compiling at (d:\Repos\Hakus\clojure\hamming-distance\.calva\output-window\output.calva-repl:23:1).
+; Unable to resolve symbol: distance in this context
+clj꞉hamming-distance.core꞉> 
+#'hamming-distance.core-test/distance
+clj꞉hamming-distance.core-test꞉> 
+(distance "GGACG" "GGTCG")
+([\G \G] [\G \G] [\G \G] [\G \G] [\G \G] [\G \G] [\C \C] [\G \G] [\G \G] [\G \G])
+clj꞉hamming-distance.core-test꞉> 
+#'hamming-distance.core/distance
+clj꞉hamming-distance.core꞉> 
+(distance "GGACG" "GGTCG")
+(true true true true true true true true true true)
+clj꞉hamming-distance.core꞉> 
+#'hamming-distance.core/distance
+clj꞉hamming-distance.core꞉> 
+(distance "GGACG" "GGTCG")
+(true
+ true
+ false
+ false
+ true
+ true
+ true
+ false
+ false
+ true
+ false
+ false
+ false
+ false
+ false
+ false
+ false
+ false
+ true
+ false
+ true
+ true
+ false
+ false
+ true)
+clj꞉hamming-distance.core꞉> 
+#'hamming-distance.core/distance
+clj꞉hamming-distance.core꞉> 
+(distance "GGACG" "GGTCG")
+(false false false false false)
+clj꞉hamming-distance.core꞉> 
+#'hamming-distance.core/distance
+clj꞉hamming-distance.core꞉> 
+(distance "GGACG" "GGTCG")
+((true true false false true)
+ (true true false false true)
+ (false false false false false)
+ (false false false true false)
+ (true true false false true))
+clj꞉hamming-distance.core꞉> (map type "ABS")
+(java.lang.Character java.lang.Character java.lang.Character)
+clj꞉hamming-distance.core꞉> 
+(map type "ABS" "CSD")
+; Error printing return value (ArityException) at clojure.lang.AFn/throwArity (AFn.java:429).
+; Wrong number of args (2) passed to: clojure.core/type
+clj꞉hamming-distance.core꞉> 
+(map = "ABS" "CSD")
+(false false false)
+clj꞉hamming-distance.core꞉> 
+(map = "ABS" "ASD")
+(true false false)
+clj꞉hamming-distance.core꞉> 
+(map = "GGACG" "GGTCG")
+(true true false true true)
+clj꞉hamming-distance.core꞉> 
+; Evaluating file: core_test.clj
+#'hamming-distance.core-test/undefined-when-lengths-are-different
+; Running tests for hamming-distance.core-test...
+; FAIL in hamming-distance.core-test/complete-distance-in-small-strand (core_test.clj:12):
+; expected:
+(= 3 (distance "ACT" "GGA"))
+; actual:
+(not
+ (= 3 ((false false true) (false false false) (false false false))))
+; FAIL in hamming-distance.core-test/larger-distance (core_test.clj:18):
+; expected:
+(= 2 (distance "ACCAGGG" "ACTATGG"))
+; actual:
+(not
+ (=
+  2
+  ((true false false true false false false)
+   (false true false false false false false)
+   (false true false false false false false)
+   (true false false true false false false)
+   (false false false false false true true)
+   (false false false false false true true)
+   (false false false false false true true))))
+; FAIL in hamming-distance.core-test/no-difference-between-empty-strands (core_test.clj:6):
+; expected:
+(= 0 (distance "" ""))
+; actual:
+(not (= 0 ()))
+; FAIL in hamming-distance.core-test/no-difference-between-identical-strands (core_test.clj:9):
+; expected:
+(= 0 (distance "GGACTGA" "GGACTGA"))
+; actual:
+(not
+ (=
+  0
+  ((true true false false false true false)
+   (true true false false false true false)
+   (false false true false false false true)
+   (false false false true false false false)
+   (false false false false true false false)
+   (true true false false false true false)
+   (false false true false false false true))))
+; FAIL in hamming-distance.core-test/small-distance-in-middle-somewhere (core_test.clj:15):
+; expected:
+(= 1 (distance "GGACG" "GGTCG"))
+; actual:
+(not
+ (=
+  1
+  ((true true false false true)
+   (true true false false true)
+   (false false false false false)
+   (false false false true false)
+   (true true false false true))))
+; FAIL in hamming-distance.core-test/undefined-when-lengths-are-different (core_test.clj:23):
+; expected:
+(= nil (distance "AAAC" "TAGGGGAGGCTAGCGGTAGGAC"))
+; actual:
+(not
+ (=
+  nil
+  ((false
+    true
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    true
+    false)
+   (false
+    true
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    true
+    false)
+   (false
+    true
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    true
+    false)
+   (false
+    false
+    false
+    false
+    false
+    false
+    false
+    false
+    false
+    true
+    false
+    false
+    false
+    true
+    false
+    false
+    false
+    false
+    false
+    false
+    false
+    true))))
+; FAIL in hamming-distance.core-test/undefined-when-lengths-are-different (core_test.clj:24):
+; expected:
+(= nil (distance "GACTACGGACAGGGTAACATAG" "GACA"))
+; actual:
+(not
+ (=
+  nil
+  ((true false false false)
+   (false true false true)
+   (false false true false)
+   (false false false false)
+   (false true false true)
+   (false false true false)
+   (true false false false)
+   (true false false false)
+   (false true false true)
+   (false false true false)
+   (false true false true)
+   (true false false false)
+   (true false false false)
+   (true false false false)
+   (false false false false)
+   (false true false true)
+   (false true false true)
+   (false false true false)
+   (false true false true)
+   (false false false false)
+   (false true false true)
+   (true false false false))))
+; 7 tests finished, problems found. 😭 errors: 0, failures: 7, ns: 1, vars: 6
+clj꞉hamming-distance.core-test꞉> 
+#'hamming-distance.core/distance
+clj꞉hamming-distance.core꞉> 
+(dist)
+nil
+clj꞉hamming-distance.core꞉> 
+; Evaluating file: core.clj
+#'hamming-distance.core/distance
+clj꞉hamming-distance.core꞉> 
+(map = "GGACTGA" "GGACTGA")
+(true true true true true true true)
+clj꞉hamming-distance.core꞉> 
+#'hamming-distance.core/distance
+clj꞉hamming-distance.core꞉> 
+(distance "GGACTGA" "GGACTGA")
+0
+clj꞉hamming-distance.core꞉> 
+; Evaluating file: core_test.clj
+#'hamming-distance.core-test/undefined-when-lengths-are-different
+; Running tests for hamming-distance.core-test...
+; 7 tests finished, all passing 👍, ns: 1, vars: 6
+clj꞉hamming-distance.core-test꞉> 

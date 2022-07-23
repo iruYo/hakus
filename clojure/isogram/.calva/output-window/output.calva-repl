@@ -1,0 +1,242 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.28.5"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉isogram.core꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉isogram.core꞉> 
+(frequencies "hello")
+{\h 1, \e 1, \l 2, \o 1}
+clj꞉isogram.core꞉> 
+(values {\h 1, \e 1, \l 2, \o 1})
+; Syntax error compiling at (d:\Repos\Hakus\clojure\isogram\.calva\output-window\output.calva-repl:24:1).
+; Unable to resolve symbol: values in this context
+clj꞉isogram.core꞉> 
+(value {\h 1, \e 1, \l 2, \o 1})
+clojure.lang.Compiler/analyze (Compiler.java:6812)
+clojure.lang.Compiler$InvokeExpr/parse (Compiler.java:3824)
+clojure.lang.Compiler/analyzeSeq (Compiler.java:7113)
+clojure.lang.Compiler/analyze (Compiler.java:6793)
+clojure.lang.Compiler$BodyExpr$Parser/parse (Compiler.java:6124)
+clojure.lang.Compiler$FnMethod/parse (Compiler.java:5471)
+clojure.lang.Compiler$FnExpr/parse (Compiler.java:4033)
+clojure.lang.Compiler/analyzeSeq (Compiler.java:7109)
+clojure.lang.Compiler/analyze (Compiler.java:6793)
+clojure.lang.Compiler/eval (Compiler.java:7178)
+clojure.core/eval (core.clj:3202)
+clojure.core/eval (core.clj:3198)
+nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:87)
+clojure.core/apply (core.clj:667)
+clojure.core/with-bindings* (core.clj:1977)
+nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:87)
+clojure.main/repl (main.clj:437)
+clojure.main/repl (main.clj:458)
+clojure.main/repl (main.clj:368)
+nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:84)
+nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:56)
+nrepl.middleware.interruptible-eval/interruptible-eval (interruptible_eval.clj:152)
+nrepl.middleware.session/session-exec (session.clj:218)
+nrepl.middleware.session/session-exec (session.clj:217)
+java.lang.Thread/run (Thread.java:829)
+clj꞉isogram.core꞉> 
+(value {\h 1, \e 1, \l 2, \o 1})
+; Syntax error compiling at (d:\Repos\Hakus\clojure\isogram\.calva\output-window\output.calva-repl:55:1).
+; Unable to resolve symbol: value in this context
+clj꞉isogram.core꞉> 
+(vals {\h 1, \e 1, \l 2, \o 1})
+(1 1 2 1)
+clj꞉isogram.core꞉> 
+(contains2 2 '(1 1 2 1))
+; Syntax error compiling at (d:\Repos\Hakus\clojure\isogram\.calva\output-window\output.calva-repl:62:1).
+; Unable to resolve symbol: contains2 in this context
+clj꞉isogram.core꞉> 
+(contains? 2 '(1 1 2 1))
+; Execution error (IllegalArgumentException) at isogram.core/eval7850 (form-init5301389604375900812.clj:66).
+; contains? not supported on type: java.lang.Long
+clj꞉isogram.core꞉> 
+(some? 2 '(1 1 2 1))
+; Execution error (ArityException) at isogram.core/eval7852 (form-init5301389604375900812.clj:70).
+; Wrong number of args (2) passed to: clojure.core/some?
+clj꞉isogram.core꞉> 
+(some 2 '(1 1 2 1))
+; Execution error (ClassCastException) at isogram.core/eval7854 (form-init5301389604375900812.clj:74).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉isogram.core꞉> 
+(some (partial >= 2) '(1 1 2 1))
+true
+clj꞉isogram.core꞉> 
+(some (partial >= 2) '(1 1 1 1))
+true
+clj꞉isogram.core꞉> 
+(some (>= 2) '(1 1 1 1))
+; Execution error (ClassCastException) at isogram.core/eval7860 (form-init5301389604375900812.clj:84).
+; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉isogram.core꞉> 
+(some #(>= 2 %) '(1 1 1 1))
+true
+clj꞉isogram.core꞉> (some #(>= 2 %) '(1 1 1 1))
+true
+clj꞉isogram.core꞉> 
+(some #(>= % 2) '(1 1 1 1))
+nil
+clj꞉isogram.core꞉> 
+(some #(>= % 2) '(1 2 1 1))
+true
+clj꞉isogram.core꞉> 
+#'isogram.core/isogram?
+clj꞉isogram.core꞉> (isogram? "subdermatoglyphic")
+; Syntax error compiling at (d:\Repos\Hakus\clojure\isogram\.calva\output-window\output.calva-repl:100:20).
+; Unable to resolve symbol: isogram? in this context
+clj꞉isogram.core꞉> 
+; Evaluating file: core.clj
+#'isogram.core/isogram?
+clj꞉isogram.core꞉> 
+(isogram? "subdermatoglyphic")
+nil
+clj꞉isogram.core꞉> (frequencies "subdermatoglyphic")
+{\a 1, \b 1, \c 1, \d 1, \e 1, \g 1, \h 1, \i 1, \l 1, \m 1, \o 1, \p 1, \r 1, \s 1, \t 1, \u 1, \y 1}
+clj꞉isogram.core꞉> 
+(vals (frequencies "subdermatoglyphic"))
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+clj꞉isogram.core꞉> 
+(some #(>= % 2) (1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1))
+; Execution error (ClassCastException) at isogram.core/eval7935 (form-init5301389604375900812.clj:115).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉isogram.core꞉> 
+(some #(>= % 2) '(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1))
+nil
+clj꞉isogram.core꞉> 
+(every? (= 1) '(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1))
+; Execution error (ClassCastException) at isogram.core/eval7950 (form-init5301389604375900812.clj:122).
+; class java.lang.Boolean cannot be cast to class clojure.lang.IFn (java.lang.Boolean is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉isogram.core꞉> 
+(every? (partial = 1) '(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1))
+true
+clj꞉isogram.core꞉> 
+(every? (partial = 1) '(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1))
+false
+clj꞉isogram.core꞉> 
+#'isogram.core/isogram?
+clj꞉isogram.core꞉> 
+(isogram? "subdermatoglyphic")
+true
+clj꞉isogram.core꞉> 
+; Evaluating file: core_test.clj
+#'isogram.core-test/test-non-isograms
+; Running tests for isogram.core-test...
+; FAIL in isogram.core-test/test-isograms (core_test.clj:9):
+; expected:
+(isogram? "Hjelmqvist-Gryb-Zock-Pfund-Wax")
+; actual:
+(not (isogram? "Hjelmqvist-Gryb-Zock-Pfund-Wax"))
+; FAIL in isogram.core-test/test-isograms (core_test.clj:11):
+; expected:
+(isogram? "Emily Jung Schwartzkopf")
+; actual:
+(not (isogram? "Emily Jung Schwartzkopf"))
+; FAIL in isogram.core-test/test-non-isograms (core_test.clj:16):
+; expected:
+(not (isogram? "Alphabet"))
+; actual:
+(not (not true))
+; 10 tests finished, problems found. 😭 errors: 0, failures: 3, ns: 1, vars: 2
+clj꞉isogram.core-test꞉> 
+(isogram? "subdermatoglyphic")
+true
+clj꞉isogram.core-test꞉>  (->> Hjelmqvist-Gryb-Zock-Pfund-Wax""
+       clojure.string/lower-case
+       (filter #(not (= "\-" %) (= "\ " %))))
+; Syntax error reading source at (REPL:161:28).
+; Unsupported escape character: \-
+clj꞉isogram.core-test꞉> 
+(->> Hjelmqvist-Gryb-Zock-Pfund-Wax""
+       clojure.string/lower-case
+       (filter #(not (= \- %) (= \  %))))
+; Syntax error compiling at (d:\Repos\Hakus\clojure\isogram\.calva\output-window\output.calva-repl:167:8).
+; Unable to resolve symbol: Hjelmqvist-Gryb-Zock-Pfund-Wax in this context
+clj꞉isogram.core-test꞉> 
+(->> "Hjelmqvist-Gryb-Zock-Pfund-Wax"
+     clojure.string/lower-case
+     (filter #(not (= \- %) (= \  %))))
+; Error printing return value (ArityException) at clojure.lang.AFn/throwArity (AFn.java:429).
+; Wrong number of args (2) passed to: clojure.core/not
+clj꞉isogram.core-test꞉> 
+(->> "Hjelmqvist-Gryb-Zock-Pfund-Wax"
+     clojure.string/lower-case
+     (filter #(not (or (= \- %) (= \  %)))))
+(\h \j \e \l \m \q \v \i \s \t \g \r \y \b \z \o \c \k \p \f \u \n \d \w \a \x)
+clj꞉isogram.core-test꞉> 
+#'isogram.core/isogram?
+clj꞉isogram.core꞉> 
+; Evaluating file: core_test.clj
+#'isogram.core-test/test-non-isograms
+; Running tests for isogram.core-test...
+; 10 tests finished, all passing 👍, ns: 1, vars: 2
+clj꞉isogram.core-test꞉> 
+(distinct? '(\h \j \e \l \m \q \v \i \s \t \g \r \y \b \z \o \c \k \p \f \u \n \d \w \a \x))
+true
+clj꞉isogram.core-test꞉> 
+#'isogram.core/isogram?
+clj꞉isogram.core꞉> 
+; Evaluating file: core_test.clj
+#'isogram.core-test/test-non-isograms
+; Running tests for isogram.core-test...
+; FAIL in isogram.core-test/test-non-isograms (core_test.clj:15):
+; expected:
+(not (isogram? "eleven"))
+; actual:
+(not (not true))
+; FAIL in isogram.core-test/test-non-isograms (core_test.clj:16):
+; expected:
+(not (isogram? "Alphabet"))
+; actual:
+(not (not true))
+; FAIL in isogram.core-test/test-non-isograms (core_test.clj:17):
+; expected:
+(not (isogram? "the quick brown fox"))
+; actual:
+(not (not true))
+; FAIL in isogram.core-test/test-non-isograms (core_test.clj:18):
+; expected:
+(not (isogram? "éléphant"))
+; actual:
+(not (not true))
+; 10 tests finished, problems found. 😭 errors: 0, failures: 4, ns: 1, vars: 2
+clj꞉isogram.core-test꞉> (isogram? "eleven")
+true
+clj꞉isogram.core-test꞉>   (->> "eleven"
+                               clojure.string/lower-case
+                               (filter #(not (or (= \- %) (= \  %)))))
+(\e \l \e \v \e \n)
+clj꞉isogram.core-test꞉> 
+(distinct? '(\e \l \e \v \e \n))
+true
+clj꞉isogram.core-test꞉> 
+(apply distinct? '(\e \l \e \v \e \n))
+false
+clj꞉isogram.core-test꞉> 
+#'isogram.core/isogram?
+clj꞉isogram.core꞉> 
+; Evaluating file: core_test.clj
+#'isogram.core-test/test-non-isograms
+; Running tests for isogram.core-test...
+; 10 tests finished, all passing 👍, ns: 1, vars: 2
+clj꞉isogram.core-test꞉> 
+; Evaluating file: core_test.clj
+#'isogram.core-test/test-non-isograms
+; Running tests for isogram.core-test...
+; 10 tests finished, all passing 👍, ns: 1, vars: 2
+clj꞉isogram.core-test꞉> 
