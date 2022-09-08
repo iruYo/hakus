@@ -1,7 +1,6 @@
 (ns change.core)
 
-;15 #{1 5 10 25 100}
-;63 #(5 10 21 25) 
+; lifted from https://exercism.org/tracks/clojure/exercises/change/solutions/leetwinski
 
 ; reduce function takes empty map, builder function and range from 1 to desired coin
 ; "builder function" builds smallest possible changeset for each value in range up until desired coin
@@ -10,7 +9,7 @@
 ; - maps each coin over current map. 
 ; - - get value for: current range minus coin, return empty vector if empty.
 ; - - append current coin to that vector
- 
+
 ; - - EXPLAINATION  #{1 5 10 25 100}
 ; - - vector contains possible set to make up current amount.
 ; - - vectors are keyed by their range value
@@ -25,41 +24,22 @@
 ; - of all possible coin sets, choose set with least amount of entries
 ; - add this coin set to reduce map, keyed by current range value
 
-(defn issue [sum coin-set]
-  )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(defn issue2 [sum coins]
-  (when (or (neg? sum) (and (pos? sum) (every? #(< sum %) coins)))
-    (throw (IllegalArgumentException. "cannot change")))
-  (let [coins (sort coins)
-        all-amounts (reduce (fn [cached-amounts amount]
-                              (->> coins
-                                   (filter #(<= % amount))
-                                   (map #(conj (cached-amounts (- amount %) []) %))
+; recreated from explanation above.
+(defn calc-change [sum coin-set]
+  (let [change-sets (reduce (fn [change-sets coin]
+                              (->> coin-set
+                                   (filter (partial >= coin))
+                                   (map #(conj (change-sets (- coin %) []) %))
                                    (apply min-key count)
-                                   (assoc cached-amounts amount))) {} (range 1 (inc sum)))]
-    (all-amounts sum)))
+                                   (assoc change-sets coin)))
+                            {} (drop-while (partial > (apply min coin-set)) (range 1 (inc sum))))]
+    (change-sets sum)))
+
+(defn issue [sum coin-set]
+  (when (or (neg? sum)                                      ; error when neg sum, ...
+            (and (every? (partial < sum) coin-set)          ; ... when every coin in set is greater then sum
+                 (not (= 0 sum)))                           ; 0 is fine though
+            (not (= 0 (reduce #(rem %1 %2) sum coin-set)))) ; ... not divisible at all
+    (throw (IllegalArgumentException. "cannot change")))
+  (sort < (calc-change sum coin-set)))
