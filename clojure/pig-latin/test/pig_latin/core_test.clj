@@ -88,6 +88,14 @@
   (is (= "xrayay"
          (translate "xray"))))
 
+(deftest word-beginning-with-consonants-followed-by-y
+  (is (= "ythmrhay"
+         (translate "rhythm"))))
+
+(deftest two-letter-word-ends-with-y
+  (is (= "ymay"
+         (translate "my"))))
+
 ;; phrases are translated
 (deftest a-whole-phrase
   (is (= "ickquay astfay unray"
