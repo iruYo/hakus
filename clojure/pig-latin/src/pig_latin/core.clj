@@ -7,7 +7,7 @@
 (def consonants (difference alphabet vowels))
 
 (defn split-consonant-from-word [word]
-  (map #(apply str %) (split-with #(contains? consonants %) word)))
+  (map #(apply str %) (split-with #(some (partial = (str %)) consonants) word)))
 
 (defn starts-with-seq? [word seq]
   (some #(s/starts-with? word %) seq))
@@ -25,14 +25,13 @@
       (= "qu" (take 2 split-word)))))
 
 (defn consonant-sound-with-y? [word]
-  word)
-
+  false)
 
 (defn translate [word]
   (cond
     (vowel-sound? word) (str word "ay")
-    (consonant-sound-with-qu? word) word
+    (consonant-sound-with-qu? word) :undefined
     (consonant-sound-with-y? word) (str word "ay")
-    (consonant-sound? word) (let [word-seq (split-consonant-from-word word)]
-                              (str (second word-seq) (first word-seq) "ay"))
+    (consonant-sound? word) (let [[consonant-cluster rest] (split-consonant-from-word word)]
+                              (str rest consonant-cluster "ay"))
     :else word))
