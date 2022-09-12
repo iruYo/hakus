@@ -1,37 +1,25 @@
 (ns pig-latin.core
-  (:require [clojure.set :refer [difference union]]
+  (:require [clojure.set :refer [difference]]
             [clojure.string :as s]))
 
-(def alphabet #{"a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"})
-(def vowels #{"a" "e" "i" "o" "u"})
+(def alphabet #{\a \b \c \d \e \f \g \h \i \j \k \l \m \n \o \p \q \r \s \t \u \v \w \x \y \z})
+
+(def vowels #{\a \e \i \o \u})
+(def vowels-regex (re-pattern (str "^(yt|xr|[" (apply str vowels) "])(.*)")))
+
 (def consonants (difference alphabet vowels))
+(def consonants-regex (re-pattern (str "^(sch|ch|qu|thr|th|rh|[" (apply str consonants) "](?:qu)?)(.*)")))
 
-(defn split-consonant-from-word [word]
-  (map #(apply str %) (split-with #(some (partial = (str %)) consonants) word)))
+(defn word->piglatin [word]
+  (let [[_ vowel _] (re-matches vowels-regex word)
+        [_ consonant rest] (re-matches consonants-regex word)]
+    (cond
+      (some? vowel) (str word "ay")
+      (some? consonant) (str rest consonant "ay")
+      :else word)))
 
-(defn starts-with-seq? [word seq]
-  (some #(s/starts-with? word %) seq))
+(defn translate [sentence]
+  (s/join " " (map word->piglatin (s/split sentence #" "))))
 
-(defn vowel-sound? [word]
-  (let [vowel-sounds (union vowels #{"xr" "xy"})]
-    (starts-with-seq? word vowel-sounds)))
+;yttriaay | yttria
 
-(defn consonant-sound? [word]
-  (starts-with-seq? word consonants))
-
-(defn consonant-sound-with-qu? [word]
-  (when (consonant-sound? word)
-    (when-let [split-word (second (split-consonant-from-word word))]
-      (= "qu" (take 2 split-word)))))
-
-(defn consonant-sound-with-y? [word]
-  false)
-
-(defn translate [word]
-  (cond
-    (vowel-sound? word) (str word "ay")
-    (consonant-sound-with-qu? word) :undefined
-    (consonant-sound-with-y? word) (str word "ay")
-    (consonant-sound? word) (let [[consonant-cluster rest] (split-consonant-from-word word)]
-                              (str rest consonant-cluster "ay"))
-    :else word))
