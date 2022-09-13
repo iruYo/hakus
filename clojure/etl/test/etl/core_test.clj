@@ -1,18 +1,18 @@
 (ns etl.core-test
   (:require [clojure.test :refer [deftest is]]
-            etl))
+            [etl.core :refer :all]))
 
 (deftest transform-one-value
   (is (= {"world" 1}
-         (etl/transform {1 ["WORLD"]}))))
+         (transform {1 ["WORLD"]}))))
 
 (deftest transform-more-values
-  (is (= {"world" 1 "gschoolers" 1}
-         (etl/transform {1 ["WORLD" "GSCHOOLERS"]}))))
+  (is (= {"world" 1 "schoolers" 1}
+         (transform {1 ["WORLD" "SCHOOLERS"]}))))
 
 (deftest more-keys
   (is (= {"apple" 1 "artichoke" 1 "boat" 2 "ballerina" 2}
-         (etl/transform {1 ["APPLE" "ARTICHOKE"], 2 ["BOAT" "BALLERINA"]}))))
+         (transform {1 ["APPLE" "ARTICHOKE"], 2 ["BOAT" "BALLERINA"]}))))
 
 (deftest full-dataset
   (is (= {"a"  1 "b"  3 "c" 3 "d" 2 "e" 1
@@ -21,7 +21,7 @@
           "p"  3 "q" 10 "r" 1 "s" 1 "t" 1
           "u"  1 "v"  4 "w" 4 "x" 8 "y" 4
           "z" 10}
-         (etl/transform {1  (re-seq #"\w" "AEIOULNRST")
+         (transform {1  (re-seq #"\w" "AEIOULNRST")
                          2  (re-seq #"\w" "DG")
                          3  (re-seq #"\w" "BCMP")
                          4  (re-seq #"\w" "FHVWY")
