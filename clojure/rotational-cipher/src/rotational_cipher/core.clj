@@ -18,8 +18,6 @@
         lower-cipher-alphabet (into {} (map (fn [[k v]] [k (Character/toLowerCase v)]) cipher-alphabet))]
     (apply str (map (fn [char]
                       (let [index (indexed-alphabet (Character/toUpperCase char))]
-                        (if (nil? index)
-                          char
-                          (if (Character/isUpperCase char)
-                            (get cipher-alphabet index)
-                            (get lower-cipher-alphabet index))))) input))))
+                        (if (Character/isUpperCase char)
+                          (get cipher-alphabet index char)
+                          (get lower-cipher-alphabet index char)))) input))))
