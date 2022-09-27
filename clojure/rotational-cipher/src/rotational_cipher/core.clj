@@ -1,23 +1,18 @@
 (ns rotational-cipher.core)
 
-(def alphabet '(\A \B \C \D \E \F \G \H \I \J \K \L \M \N \O \P \Q \R \S \T \U \V \W \X \Y \Z))
-(def indexed-alphabet (zipmap alphabet (range)))
+(def alphabet "abcdefghijklmnopqrstuvwxyz")
 
-(defn rotate-alphabet [count]
-  (into {} (map-indexed (fn [idx val]
-                          (let [key (- idx (rem count 26))]
-                            [(cond
-                               (> key 25) (- key 26)
-                               (< key 0) (+ key 26)
-                               :else key)
-                             val]))
-                        alphabet)))
 
-(defn rotate [input cipher]
-  (let [cipher-alphabet (rotate-alphabet cipher)
-        lower-cipher-alphabet (into {} (map (fn [[k v]] [k (Character/toLowerCase v)]) cipher-alphabet))]
-    (apply str (map (fn [char]
-                      (let [index (indexed-alphabet (Character/toUpperCase char))]
-                        (if (Character/isUpperCase char)
-                          (get cipher-alphabet index char)
-                          (get lower-cipher-alphabet index char)))) input))))
+(defn rotate [string rot]
+  (let [rotated (take 26 (drop (mod rot 26) "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"))
+        cipher (zipmap (str alphabet (clojure.string/upper-case alphabet))
+                       (concat rotated (map clojure.string/upper-case rotated)))]
+    (apply str (map #(cipher % %) string))))
+
+(defn rotate3 [text key]
+  (let [shifted (take 26 (drop (mod key 26) (cycle alphabet)))
+        cipher (zipmap (str alphabet (clojure.string/upper-case alphabet))
+                       (concat shifted (map clojure.string/upper-case shifted)))]
+    (->> #break text
+         (map #(if (Character/isLetter %) (cipher %) %))
+         (apply str))))

@@ -29,7 +29,6 @@
 (deftest rotate-punctuation
   (is (= (rotate "Let's eat, Grandma!" 21) "Gzo'n zvo, Bmviyhv!")))
 
-
 (deftest rotate-opposite-direction
   (is (= (rotate "b" -1) "a")))
 
