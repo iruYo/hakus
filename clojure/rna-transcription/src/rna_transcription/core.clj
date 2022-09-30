@@ -4,12 +4,15 @@
                   \G "C"
                   \A "U"
                   \T "A"})
-(defn to-rna3 [dna]
+
+(defn dna-nucleotide->rna-nucleotide [dna-nucleotide]
+    (if-let [translation (translations dna-nucleotide)]
+      translation
+      (throw (AssertionError.))))
+
+(defn to-rna [dna]
   (->> dna
-       (map (fn [part]
-              (if-let [translation (translations part)]
-                translation
-                (throw (AssertionError.)))))
+       (map dna-nucleotide->rna-nucleotide)
        (apply str)))
 
 (defn to-rna2 [dna]
@@ -18,7 +21,7 @@
       (throw (AssertionError.))
       (apply str translation))))
 
-(defn to-rna [dna]
+(defn to-rna1 [dna]
   (when (some nil? (map translations dna))
     (throw (AssertionError.)))
   (->> dna
